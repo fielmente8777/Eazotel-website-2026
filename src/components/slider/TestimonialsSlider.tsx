@@ -2,7 +2,6 @@
 import { TestimonialsDataTypes } from "@/@types/@homeType";
 import SwiperCarousel from "./SwiperCarousel";
 import { Autoplay, Navigation } from "swiper/modules";
-import TestimonialCard from "../cards/TestimonialCard";
 
 interface Props {
   cards: TestimonialsDataTypes["cards"];
@@ -30,11 +29,10 @@ const TestimonialsSlider: React.FC<Props> = ({ cards }) => {
             slidesPerView: 3,
           },
         }}
-        renderSlide={(item) => <TestimonialCard {...item} />}
+        renderSlide={(item) => <div></div>}
       />
     </div>
   );
 };
 
 export default TestimonialsSlider;
-
