@@ -4,7 +4,6 @@ import { useAppContext } from "@/contextApi/AppContext";
 import { IoClose } from "react-icons/io5";
 import { navLinks } from "./navLinks";
 import Link from "next/link";
-import { OutlineDrpopdown } from "@/utils/homePageIcons";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -15,9 +14,9 @@ const MobileNav = () => {
   // ✅ store active dropdown index
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
-  const handleDropdown = (index: number) => {
-    setOpenDropdown((prev) => (prev === index ? null : index));
-  };
+  // const handleDropdown = (index: number) => {
+  //   setOpenDropdown((prev) => (prev === index ? null : index));
+  // };
 
   return (
     <div
@@ -47,7 +46,7 @@ const MobileNav = () => {
                     {link.label}
                   </Link>
 
-                  {link.subLinks && (
+                  {/* {link.subLinks && (
                     <button
                       onClick={() => handleDropdown(index)}
                       className="duration-300 transition-all ease-in-out"
@@ -58,7 +57,7 @@ const MobileNav = () => {
                         }`}
                       />
                     </button>
-                  )}
+                  )} */}
                 </div>
 
                 {isActive && link.subLinks && (

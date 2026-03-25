@@ -1,11 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState, useCallback, useRef, useContext } from "react";
-import React from "react";
-import { OutlineClose } from "@/utils/homePageIcons";
-import PopUpForm from "../forms/PopUpForm";
 import { AppContext } from "@/contextApi/AppContext";
 import { usePathname } from "next/navigation";
+import { MdClose } from "react-icons/md";
 
 const PopupForm = () => {
   const { isOpenPopupForm, setIsOpenPopupForm } = useContext(AppContext);
@@ -71,7 +69,7 @@ const PopupForm = () => {
               className="absolute top-1 right-1 w-8 h-8 flex justify-center items-center text-lg rounded-full text-secondary bg-white z-10 transition-all duration-300"
               aria-label="Close popup"
             >
-              <OutlineClose />
+              <MdClose />
             </button>
             <div className="relative w-full md:aspect-4/4 max-md:hidden">
               <Image
@@ -82,7 +80,6 @@ const PopupForm = () => {
                 priority
               />
             </div>
-            <PopUpForm />
           </div>
         </article>
       </section>
