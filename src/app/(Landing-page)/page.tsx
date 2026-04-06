@@ -1,3 +1,4 @@
+import CtaSection from "@/components/common-section/CtaSection";
 import Automation from "./components/Automation";
 import Banner from "./components/Banner";
 import Clients from "./components/Clients";
@@ -8,6 +9,9 @@ import Modules from "./components/Modules";
 import ProblemSection from "./components/ProblemSection";
 import Results from "./components/Results";
 import WhyEazotel from "./components/WhyEazotel";
+import MoreStories from "./components/MoreStories";
+import BusinessPartners from "./components/BusinessPartners";
+import WhoUseEazotel from "./components/WhoUseEazotel";
 
 export default function LandingPage() {
   return (
@@ -21,6 +25,10 @@ export default function LandingPage() {
       <Automation {...landingPageData.automationSection} />
       <Results {...landingPageData.resultsSection} />
       <HowItWork {...landingPageData.howItWorks} />
+      <WhoUseEazotel {...landingPageData.whoUseEazotel} />
+      <MoreStories {...landingPageData.testimonialSection2} />
+      <CtaSection {...landingPageData.ctaData} />
+      <BusinessPartners {...landingPageData.businessPartnersData} />
     </main>
   );
 }

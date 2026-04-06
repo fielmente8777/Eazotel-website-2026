@@ -50,7 +50,7 @@ const Banner: React.FC<Props> = ({
             />
           ))}
         </div>
-        <div className="md:max-w-227.5 mt-8 w-full mx-auto relative aspect-4/2.25 rounded-2xl overflow-hidden">
+        <div className="md:max-w-227.5 mt-8 w-full mx-auto relative aspect-[4/2.4] lg:aspect-[4/2.4] rounded-2xl overflow-hidden">
           <Image
             src={images[0]}
             alt="banner"

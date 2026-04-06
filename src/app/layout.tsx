@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Sofia_Sans } from "next/font/google";
 import "./globals.css";
 import "./styles.scss";
+import Footer from "@/components/footers/Footer";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -13,7 +14,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const sofiaSans = Sofia_Sans({
   variable: "--font-sofia-sans",
   subsets: ["latin"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Eazotel",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <AppProvider>
           <NavBar />
           {children}
+          <Footer />
         </AppProvider>
       </body>
     </html>

@@ -40,17 +40,15 @@ const Header = () => {
     <header className="max_screen_width md:bg-[#020208] md:pt-4">
       <nav className="max_width py-3 px-4! rounded-lg flex items-center bg-transparent! justify-between glassy-card">
         {/* logo */}
-        {/* <div className="relative w-36 aspect-[4/.75]">
+        <div className="relative w-36 aspect-[4/.75]">
           <Image
             src="/logo.png"
             alt="logo"
             fill
             className="object-contain"
           />
-        </div> */}
-        <div className="md:text-[25.45px] text-xl font-semibold font-primary text-primary md:text-white md:pl-6">
-          Eazotel
         </div>
+        
         {/* links */}
         <ul className="md:flex hidden items-center gap-3.5 text-white">
           {navLinks.map((link) => (

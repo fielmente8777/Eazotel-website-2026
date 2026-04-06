@@ -1,7 +1,6 @@
 import { FeaturesProps } from "@/@types/@landingPageType";
-import { SectionWithContainer } from "@/components/sectionComponants";
+import { Container, Section } from "@/components/sectionComponants";
 import { SectionHeading } from "@/components/typography";
-import FeatureCard from "./cards/FeatureCard";
 import FeaturesSlider from "./slider/FeaturesSlider";
 
 const Features: React.FC<FeaturesProps> = ({
@@ -12,8 +11,9 @@ const Features: React.FC<FeaturesProps> = ({
   cards,
 }) => {
   return (
-    <SectionWithContainer containerClassName="md:space-y-4 space-y-3" sectionId="features">
-      <SectionHeading
+    <Section id="features">
+      <Container className="md:space-y-4 space-y-3 mb-8">
+        <SectionHeading
         title={title}
         subTitle={subTitle}
         setIcon={titleIcon}
@@ -23,13 +23,14 @@ const Features: React.FC<FeaturesProps> = ({
         titleWrapperClassName="px-5 py-2 border border-main-border rounded-full"
       />
       <p className="md:text-lg text-center">{description[0]}</p>
-      <div className="md:flex hidden flex-wrap justify-center gap-x-7 gap-y-13 mt-12">
+      </Container>
+      {/* <div className="md:flex hidden flex-wrap justify-center gap-x-7 gap-y-13 mt-12">
         {cards.map((card, index) => (
           <FeatureCard key={index} {...card} />
         ))}
-      </div>
+      </div> */}
       <FeaturesSlider cards={cards} />
-    </SectionWithContainer>
+    </Section>
   );
 };
 

@@ -16,8 +16,19 @@ import {
   WhatsAppEnquiryIcon,
   WhatsAppIcon,
 } from "@/utils/homePageIcons";
-import { BoxIcon, ProblemSection, StartIcon } from "@/utils/titleIcons";
+import {
+  AutomationIcon,
+  BoxIcon,
+  ProblemSection,
+  ResultIcon,
+  StarIcon,
+  StartIcon,
+  TargetIcon,
+  TestimonialIcon,
+  WorkGraphIcon,
+} from "@/utils/titleIcons";
 import { contacts } from "../../../../contact";
+import { data } from "@/utils/testimonialsData";
 
 const btnType: BtnType = "link";
 export const landingPageData = {
@@ -29,19 +40,56 @@ export const landingPageData = {
     ],
     images: ["/landing-page/Safari-bnr.png"],
     actions: [
-      { type: btnType, target: "_blank", label: "Get a Free Demo", href: contacts.WhatsAppCta },
-      { type: btnType, target: "_blank", label: "See How It Works", href: contacts.WhatsAppCta },
+      {
+        type: btnType,
+        target: "_blank",
+        label: "Get a Free Demo",
+        href: contacts.WhatsAppCta,
+      },
+      {
+        type: btnType,
+        target: "_blank",
+        label: "See How It Works",
+        href: contacts.WhatsAppCta,
+      },
     ],
   },
 
   trustedData: {
     title: "Trusted by <span>120+ hotels</span> worldwide",
-    clients: ClientImages,
+    clients: [
+      "/logo/taj-logo.png",
+      "/logo/radisson.png",
+      "/logo/urbon-logo.png",
+      "/logo/wabi-sabi-logo.png",
+      "/logo/ramada-logo.png",
+      "/logo/courtyard-logo.png",
+      "/logo/hilten-logo.png",
+      "/logo/baymont-logo.png",
+      "/logo/hyatt-logo.png",
+      "/logo/marriott-logo.png",
+      "/logo/westin-logo.png",
+      "/logo/accor-logo.png",
+      "/logo/crystal-logo.png",
+      "/logo/marriot-logo-2.png",
+      "/logo/holidaylnn-logo.png",
+      "/logo/redroof-logo.png",
+      "/logo/sayaji-logo.png",
+      "/logo/sarovar-logo.png",
+      "/logo/itc-logo.png",
+      "/logo/fortune-logo.png",
+    ],
+    cta: {
+      type: btnType,
+      target: "_blank",
+      label: "Book a Demo",
+      href: contacts.WhatsAppCta,
+    },
   },
 
   problemSection: {
     titleIcon: <ProblemSection />,
-    title: "Problem Section",
+    title: "The Problem",
     subTitle: "Hotels Lose Bookings Because Leads Are Scattered",
     description: [
       "Your team juggles multiple tools while guests wait. Every missed reply is a lost booking.",
@@ -52,24 +100,28 @@ export const landingPageData = {
         description:
           "Facebook and Instagram enquiries get lost in ad manager notifications.",
         icon: <MetaLeadsIcon />,
+        image: "/landing-page/problem-1.png",
       },
       {
         title: "WhatsApp enquiries go to another",
         description:
           "Guest messages sit unread on personal phones without tracking.",
         icon: <WhatsAppEnquiryIcon />,
+        image: "/landing-page/problem-2.png",
       },
       {
         title: "Website chats are missed",
         description:
           "Live chat enquiries disappear when staff are offline or busy.",
         icon: <WebsiteChatsIcon />,
+        image: "/landing-page/problem-3.png",
       },
       {
         title: "Staff forget to follow up",
         description:
           "Without reminders, hot leads go cold and bookings are lost.",
         icon: <StaffForgetIcon />,
+        image: "/landing-page/problem-4.png",
       },
     ],
     note: {
@@ -99,21 +151,21 @@ export const landingPageData = {
         image: "/landing-page/feature-2.png",
       },
       {
-        title: "Instagram & Messenger",
-        description:
-          "Track DMs and comments from social channels automatically.",
-        image: "/landing-page/feature-3.png",
-      },
-      {
         title: "Website Live Chat",
         description: "Never miss a guest enquiry with real time website chat.",
-        image: "/landing-page/feature-4.png",
+        image: "/landing-page/feature-3.png",
       },
       {
         title: "Direct Website Forms",
         description:
           "Capture form submissions and route them to your sales team.",
         image: "/landing-page/feature-5.png",
+      },
+      {
+        title: "Instagram & Messenger",
+        description:
+          "Track DMs and comments from social channels automatically.",
+        image: "/landing-page/feature-4.png",
       },
     ],
   },
@@ -174,13 +226,13 @@ export const landingPageData = {
   },
 
   whySection: {
-    titleIcon: <StartIcon />,
+    titleIcon: <TargetIcon />,
     title: "Why Eazotel",
     subTitle: "Why Hotels Choose <span>Eazotel</span>",
     description: [
       "A unified platform built exclusively for hospitality teams to capture and convert more guests.",
     ],
-    images: ["/landing-page/why-section.png", "/landing-page/Safari-bnr.png"],
+    images: ["/landing-page/why-section.png", "/landing-page/Safari-1.png"],
     cards: [
       {
         title: "Increase Direct Bookings",
@@ -210,7 +262,7 @@ export const landingPageData = {
   },
 
   automationSection: {
-    titleIcon: <BoxIcon />,
+    titleIcon: <AutomationIcon />,
     title: "Automation",
     subTitle: "Automate Your Guest Communication",
     description: [
@@ -249,32 +301,33 @@ export const landingPageData = {
   },
 
   resultsSection: {
-    titleIcon: <StartIcon />,
+    titleIcon: <ResultIcon />,
     title: "Results",
-    subTitle: "Turn Enquiries Into Revenue",
+    subTitle: "Designed for growth, built for <span>Hotels</span>",
     description: [
-      "Hotels using Eazotel see measurable improvements across every key metric.",
+      "The all-in-one platform to manage, convert, and maximize every enquiry",
+      "No setup hassle | Works with your existing channels",
     ],
     stats: [
       {
         value: "2×",
-
-        label: "Faster Response Time",
+        description: "Reply to guests instantly across all channels",
+        label: "Faster Guest Response",
       },
       {
         value: "35%",
-
-        label: "Higher Lead Conversion",
+        description: "Turn more enquiries into confirmed bookings",
+        label: "Smart Lead Conversion",
       },
       {
         value: "40%",
-
-        label: "More Direct Bookings",
+        description: "Drive more direct reservations without OTAs",
+        label: "Direct Bookings",
       },
       {
         value: "1",
-
-        label: "Unified Dashboard",
+        description: "Manage all guest interactions from one dashboard",
+        label: "Unified Enquiry Management",
       },
     ],
     images: [
@@ -284,10 +337,15 @@ export const landingPageData = {
       "/landing-page/result-4.png",
       "/landing-page/result-5.png",
     ],
+    cta: {
+      label: "Get Started With Eazotel",
+      href: contacts.WhatsAppCta,
+    },
+    note: "Trusted by 500+ hotels",
   },
 
   howItWorks: {
-    titleIcon: <BoxIcon />,
+    titleIcon: <WorkGraphIcon />,
     title: "How It Works",
     subTitle: "How Eazotel Works",
     description: [
@@ -323,7 +381,12 @@ export const landingPageData = {
             number: "12",
             leadType: "Warm lead",
           },
-          { title: "Ayush S", src: "/landing-page/54.png", number: "54", leadType: "New lead" },
+          {
+            title: "Ayush S",
+            src: "/landing-page/54.png",
+            number: "54",
+            leadType: "New lead",
+          },
         ],
       },
       {
@@ -334,6 +397,112 @@ export const landingPageData = {
           { title: "Booking Confirmed!", icon: <CalenderIcon /> },
           { title: "Ocean View Suite Dec 24 28" },
         ],
+      },
+    ],
+  },
+
+  // check
+  whoUseEazotel: {
+    titleIcon: <StarIcon />,
+    title: "For Every Property",
+    subTitle: "Who Use Eazotel",
+    description:
+      "The platform that powers hospitality businesses of all sizes.",
+    cards: [
+      {
+        title: "Hotel Groups",
+        description: "Centralized lead management across multiple properties.",
+        image: "/landing-page/who-use-1.png",
+      },
+      {
+        title: "Resorts",
+        description:
+          "Manage high-volume inquiries and seasonal campaigns effortlessly.",
+        image: "/landing-page/who-use-2.png",
+      },
+      {
+        title: "Boutique Hotels",
+        description: "Personalized guest experiences with smart CRM workflows.",
+        image: "/landing-page/who-use-3.png",
+      },
+    ],
+  },
+
+  testimonialSection2: {
+    titleIcon: <TestimonialIcon />,
+    title: "Testimonials",
+    subTitle: "What Our Customers Say",
+    description:
+      "Hotels across India use Eazotel to build better websites, increase direct bookings, and reduce OTA dependency.",
+    testimonials: data,
+    cta: {
+      label: "Book a Free Consultation Call",
+      href: contacts.WhatsAppCta,
+    },
+  },
+  ctaData: {
+    title: "Stop Losing Enquiries.<br />Start Converting Them.",
+    description:
+      "See how Eazotel can increase your direct bookings. Book a free demo today.",
+    cta: {
+      label: "Book a Demo",
+      href: "",
+    },
+  },
+  businessPartnersData: {
+    title: "Our <span>Business</span> Partners",
+    cards: [
+      {
+        imgSrc: "/partners/google-partner.png",
+        title: "google-partner",
+      },
+      // {
+      //   imgSrc: "/trello.png",
+      //   title: "trello",
+      // },
+      {
+        imgSrc: "/partners/meta-business-partner.png",
+        title: "meta-business-partner",
+      },
+      {
+        imgSrc: "/partners/zoho-corporation.png",
+        title: "zoho-corporation",
+      },
+      {
+        imgSrc: "/partners/aws.png",
+        title: "aws",
+      },
+      {
+        imgSrc: "/partners/Booking.Com.png",
+        title: "Booking.Com",
+      },
+      {
+        imgSrc: "/partners/razorpay.png",
+        title: "razorpay",
+      },
+      // {
+      //   imgSrc: "/slack.webp",
+      //   title: "slack",
+      // },
+      {
+        imgSrc: "/partners/agoda-logo.png",
+        title: "agoda-logo",
+      },
+      {
+        imgSrc: "/partners/airbnb-logo.png",
+        title: "airbnb-logo",
+      },
+      {
+        imgSrc: "/partners/goibibo-logo.png",
+        title: "goibibo-logo",
+      },
+      {
+        imgSrc: "/partners/makemytrip-logo.png",
+        title: "makemytrip-logo",
+      },
+      {
+        imgSrc: "/partners/cleartrip-logo.png",
+        title: "cleartrip-logo",
       },
     ],
   },

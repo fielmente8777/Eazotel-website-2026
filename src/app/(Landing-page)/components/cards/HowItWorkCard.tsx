@@ -14,7 +14,7 @@ const HowItWorkCard: React.FC<
       <div>
         <h3 className="font-semibold text-2xl mb-2">{title}</h3>
         <p className="text-[#cbcbcb]">{description}</p>
-        <div className="md:mt-6 mt-4 border border-[#373737] backdrop-blur-sm bg-[#0E1117] md:p-5 p-4 flex flex-col items-center justify-center">
+        <div className="md:mt-6 mt-4 border border-[#373737]  rounded-xl overflow-hidden backdrop-blur-md bg-[linear-gradient(145deg,#011632_0%,#00060b_100%)] md:p-5 p-4 flex flex-col items-center justify-center">
           {items && items.length > 0 && (
             <ul
               className={`flex w-full justify-center  ${index === 1 ? "flex-wrap gap-3" : index === 3 ? "w-full bg-[#171B22] rounded-lg bordr border-[#424242] flex-col items-center py-8" : "flex-col gap-3"}`}
@@ -22,7 +22,7 @@ const HowItWorkCard: React.FC<
               {items.map((item, i) => (
                 <li
                   key={i}
-                  className={`flex items-center text-white px-2.5 py-1.25 gap-2.5  backdrop-blur-sm  shadow-inner ${index === 1 ? " w-fit bg-white/3 rounded-full" : index === 2 ? " w-full bg-[#171B22] rounded-lg bordr border-[#424242]" : ""}`}
+                  className={`flex items-center text-white px-2.5 py-1.25 gap-2.5  backdrop-blur-sm   rounded-xl overflow-hidden shadow-inner ${index === 1 ? " w-fit bg-white/3 rounded-full" : index === 2 ? " w-full bg-[#171B22] rounded-lg bordr border-[#424242]" : ""}`}
                 >
                   {item.src && (
                     <span className="w-6.5 aspect-square rounded-full overflow-hidden relative">

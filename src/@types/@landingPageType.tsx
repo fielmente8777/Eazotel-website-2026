@@ -10,6 +10,7 @@ export interface ProblemSectionProps {
     title: string;
     description: string;
     icon: JSX.Element;
+    image: string;
   }[];
   note: {
     icon: JSX.Element;
@@ -74,9 +75,15 @@ export interface ResultsProps {
   description: string[];
   stats: {
     value: string;
+    description: string;
     label: string;
   }[];
   images: string[];
+  cta: {
+    label: string;
+    href: string;
+  };
+  note: string;
 }
 
 export interface HowItWorkProps {
@@ -95,5 +102,17 @@ export interface HowItWorkProps {
       leadType?: string;
     }[];
     note?: string;
+  }[];
+}
+
+export interface WhoUseEazotelProps {
+  titleIcon: JSX.Element;
+  title: string;
+  subTitle: string;
+  description: string;
+  cards: {
+    title: string;
+    description: string;
+    image: string;
   }[];
 }

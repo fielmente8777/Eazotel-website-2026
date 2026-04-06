@@ -1,17 +1,17 @@
 import { ProblemSectionProps } from "@/@types/@landingPageType";
+import Image from "next/image";
 
-const ProblemCard: React.FC<ProblemSectionProps["cards"][0]> = ({
-  title,
-  description,
-  icon,
-}) => {
+const ProblemCard: React.FC<
+  ProblemSectionProps["cards"][0] & { index: number }
+> = ({ title, description, index, image }) => {
   return (
-    <div className="glassy-card backdrop-blur-lg! bg-white/6! rounded-2xl p-6">
-      <div className="glassy-card w-fit bg-transparent! p-3 rounded-[10px] mb-5">
-        {icon}
-      </div>
+    <div className={`pt-10 lg:px-20 px-8 lg:pb-14.75 pb-10`}>
+      <span className="text-[#ff824f] text-lg mb-5">0{index + 1}</span>
       <h3 className="text-white text-xl font-semibold mb-2">{title}</h3>
       <p className="text-light ">{description}</p>
+      <div className="w-full relative aspect-[4/1.82] mt-6">
+        <Image src={image} alt={title} fill className="object-cover rounded-2xl border border-[#213354] border-inset" />
+      </div>
     </div>
   );
 };

@@ -119,7 +119,11 @@ export interface MarketingExpertiseDataTypes {
 
 export interface ClientsDataTypes {
   title: string;
-  clients: ClientData[];
+  clients: string[];
+  cta: {
+    label: string;
+    href: string;
+  };
 }
 
 export interface FaqsDataTypes {
