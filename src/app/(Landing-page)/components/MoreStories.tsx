@@ -34,7 +34,7 @@ const MoreStories: React.FC<MoreStoriesPropsType> = ({
       className="bg-background-black1 relative w-full xl:aspect-4/3 lg:aspect-4/3.5 md:aspect-4/5.75 sm:aspect-4/12 aspect-4/13"
     >
       <Image
-        src="/testimonials.png"
+        src="/Testimonials.png"
         alt="testimonial"
         fill
         className="object-cover"
