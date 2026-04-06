@@ -20,7 +20,7 @@ const ProblemSlider: React.FC<{ cards: ProblemSectionProps["cards"] }> = ({
           disableOnInteraction: false,
         }}
         speed={900}
-        renderSlide={(card) => <ProblemCard {...card} />}
+        renderSlide={(card, index) => <ProblemCard {...card} index={index ?? 0} />}
       />
     </div>
   );
