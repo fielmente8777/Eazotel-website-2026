@@ -5,6 +5,7 @@ import { contacts } from "../../../contact";
 import { CtaBtn } from "../buttons/CtaBtn";
 import { navLinks } from "./navLinks";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const Header = () => {
   // const { setIsOpenPopupForm, setIsMobileNavOpen } = useAppContext();
@@ -92,9 +93,9 @@ const Header = () => {
     >
       <nav className="max_width py-3 px-4! rounded-lg flex items-center bg-transparent! justify-between glassy-card">
         {/* logo */}
-        <div className="relative w-36 aspect-[4/.75]">
-          <Image src="/logo.png" alt="logo" fill className="object-contain" />
-        </div>
+        <Link href="/" className="relative block w-36 aspect-[4/.75]">
+          <Image src="/logo.png" alt="logo" fill className="object-contain" sizes="100vw" />
+        </Link>
 
         {/* links */}
         <ul className="md:flex hidden items-center gap-3.5 text-white">

@@ -10,29 +10,38 @@ const Clients: React.FC<ClientsDataTypes> = ({ title, clients, cta }) => {
       <div className="grid grid-cols-6">
         <div className="grid grid-cols-6 col-span-6 divide-x border-x border-b divide-main-border border-main-border">
           {clients.slice(0, 6).map((client, index) => (
-            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
+            <div
+              key={index}
+              className="col-span-1  w-full aspect-4/2.5 md:aspect-[4/1.85] relative"
+            >
               <Image
                 src={client.src}
                 alt="client"
                 fill
-                className="object-contain px-3 py-4"
+                sizes="100vw"
+                className="object-contain md:px-3 md:py-4 p-1"
               />
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-2 col-span-2 divide-x border-x border-b divide-main-border border-main-border">
+        <div className="grid md:grid-cols-2 md:col-span-2 divide-y md:divide-x border-x border-b divide-main-border border-main-border">
           {clients.slice(6, 8).map((client, index) => (
-            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
+            <div
+              key={index}
+              className="col-span-1  w-full aspect-4/2.5 md:aspect-[4/1.85] relative"
+            >
               <Image
                 src={client.src}
                 alt="client"
                 fill
-                className="object-contain px-3 py-4"
+                sizes="100vw"
+                className="object-contain md:px-3 md:py-4 p-1"
               />
             </div>
           ))}
         </div>
-        <div className="col-span-2 row-span-2 flex flex-col py-6 items-center justify-between">
+        {/* title */}
+        <div className="md:col-span-2 col-span-4 row-span-2 flex flex-col py-6 items-center justify-between">
           <SectionHeading
             subTitle={title}
             subLevel={2}
@@ -50,50 +59,66 @@ const Clients: React.FC<ClientsDataTypes> = ({ title, clients, cta }) => {
             className="bg-black mx-auto text-white max-md:text-xs w-fit! max-md:px-3 max-md:py-1  rounded-lg"
           />
         </div>
-        <div className="grid grid-cols-2 col-span-2 divide-x border-x border-b divide-main-border border-main-border">
+        <div className="grid md:grid-cols-2 md:col-span-2 divide-y md:divide-x border-x border-b divide-main-border border-main-border">
           {clients.slice(8, 10).map((client, index) => (
-            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
+            <div
+              key={index}
+              className="col-span-1  w-full aspect-4/2.5 md:aspect-[4/1.85] relative"
+            >
               <Image
                 src={client.src}
                 alt="client"
                 fill
-                className="object-contain px-3 py-4"
+                sizes="100vw"
+                className="object-contain md:px-3 md:py-4 p-1"
               />
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-2 col-span-2 divide-x border-x divide-main-border border-main-border">
+        <div className="grid md:grid-cols-2 md:col-span-2 divide-y md:divide-x border-x divide-main-border border-main-border">
           {clients.slice(10, 12).map((client, index) => (
-            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
+            <div
+              key={index}
+              className="col-span-1  w-full aspect-4/2.5 md:aspect-[4/1.85] relative"
+            >
               <Image
                 src={client.src}
                 alt="client"
                 fill
-                className="object-contain px-3 py-4"
+                sizes="100vw"
+                className="object-contain md:px-3 md:py-4 p-1"
               />
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-2 col-span-2 divide-x border-x divide-main-border border-main-border">
+        <div className="grid md:grid-cols-2 md:col-span-2 divide-y md:divide-x border-x divide-main-border border-main-border">
           {clients.slice(12, 14).map((client, index) => (
-            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
+            <div
+              key={index}
+              className="col-span-1  w-full aspect-4/2.5 md:aspect-[4/1.85] relative"
+            >
               <Image
                 src={client.src}
                 alt="client"
                 fill
-                className="object-contain px-3 py-4"
+                className="md:object-contain md:px-3 md:py-4 p-1"
+                sizes="100vw"
               />
             </div>
           ))}
         </div>
         <div className="grid grid-cols-6 col-span-6 divide-x border-x border-t divide-main-border border-main-border">
           {clients.slice(14).map((client, index) => (
-            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
+            <div
+              key={index}
+              className="col-span-1  w-full aspect-4/2.5 md:aspect-[4/1.85] relative"
+            >
               <Image
                 src={client.src}
                 alt="client"
                 fill
-                className="object-contain px-3 py-4"
+                sizes="100vw"
+                className="object-contain md:px-3 md:py-4 p-1"
               />
             </div>
           ))}
