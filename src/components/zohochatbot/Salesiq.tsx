@@ -1,27 +1,26 @@
-"use client";
-import { usePathname } from "next/navigation";
+// "use client";
+// import { usePathname } from "next/navigation";
 import Script from "next/script";
 const Salesiq = () => {
-  const pathname = usePathname();
-  const url = [
-    "/thank-you/",
-    // "/landing-page/",
-    "/resort/",
-    "/hospitality/",
-    "/dubai-restaurant/",
-    "/restaurant/",
-    "/UK/",
-    "/USA/",
-  ];
-  if (url.includes(pathname)) {
-    return null;
-  }
+  // const pathname = usePathname();
+  // const url = [
+  //   "/thank-you/",
+  //   // "/landing-page/",
+  //   "/resort/",
+  //   "/hospitality/",
+  //   "/dubai-restaurant/",
+  //   "/restaurant/",
+  //   "/UK/",
+  //   "/USA/",
+  // ];
+  // if (url.includes(pathname)) {
+  //   return null;
+  // }
   return (
     <>
       <Script id="zsiqscript" strategy="lazyOnload">
         {`
-        window.$zoho = window.$zoho || {}; $zoho.salesiq = $zoho.salesiq || { ready: function () { } }
-        `}
+          window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}`}
       </Script>
       <Script
         id="zsiqscript"

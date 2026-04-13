@@ -34,8 +34,8 @@ export const metadata: Metadata = {
         url: "/org-img.png",
         width: 800,
         height: 600,
-      }
-    ]
+      },
+    ],
   },
   robots: {
     index: true,
@@ -60,17 +60,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script id="zsiqscript" strategy="afterInteractive">
-        {`
-        window.$zoho = window.$zoho || {}; $zoho.salesiq = $zoho.salesiq || { ready: function () { } }
-        `}
-      </Script>
-      <Script
-        id="zsiqscript"
-        src="https://salesiq.zohopublic.in/widget?wc=siq3e552165893c13042e1d199f6774a60161bf7e2d236cee20afeec12690605bbe60e273bf1bbc69d76802e696c96db5df"
-        defer
-      ></Script>
-
+        {/* <Salesiq /> */}
+        <Script id="zsiqscript" strategy="lazyOnload">
+          {`
+          window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}`}
+        </Script>
+        <Script
+          id="zsiqscript"
+          strategy="lazyOnload"
+          src="https://salesiq.zohopublic.in/widget?wc=siq3e552165893c13042e1d199f6774a60161bf7e2d236cee20afeec12690605bbe60e273bf1bbc69d76802e696c96db5df"
+          defer
+        ></Script>
         {/* microsoft clarity */}
         <Script type="text/javascript" id="clarity" strategy="lazyOnload">
           {` (function (c, l, a, r, i, t, y) {
