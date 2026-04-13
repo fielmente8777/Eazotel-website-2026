@@ -4,6 +4,7 @@ import Image from "next/image";
 import { contacts } from "../../../contact";
 import { CtaBtn } from "../buttons/CtaBtn";
 import { navLinks } from "./navLinks";
+import { useEffect, useRef, useState } from "react";
 
 const Header = () => {
   // const { setIsOpenPopupForm, setIsMobileNavOpen } = useAppContext();
@@ -29,6 +30,49 @@ const Header = () => {
 
   // onClick scroll to section
 
+  const [showNavbar, setShowNavbar] = useState(true);
+
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+  const lastScrollY = useRef(0);
+
+  // ✅ Detect screen size (below lg)
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+
+    const handleResize = () => {
+      setIsMobileOrTablet(mediaQuery.matches);
+    };
+
+    handleResize(); // initial check
+    mediaQuery.addEventListener("change", handleResize);
+
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
+
+  // ✅ Scroll logic ONLY for mobile/tablet
+  useEffect(() => {
+    if (!isMobileOrTablet) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (Math.abs(currentScrollY - lastScrollY.current) < 10) return;
+
+      if (currentScrollY < 50) {
+        setShowNavbar(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isMobileOrTablet]);
+
   const scrollToSection = (sectionId: string) => {
     const section = document.querySelector(sectionId);
     if (section) {
@@ -37,18 +81,21 @@ const Header = () => {
   };
 
   return (
-    <header className="max_screen_width md:bg-[#020208] md:pt-4">
+    <header
+      className={`max_screen_width bg-[#020208] md:pt-4 pb-1 ${
+        isMobileOrTablet
+          ? `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+              showNavbar ? "translate-y-0" : "-translate-y-full"
+            }`
+          : "relative"
+      }`}
+    >
       <nav className="max_width py-3 px-4! rounded-lg flex items-center bg-transparent! justify-between glassy-card">
         {/* logo */}
         <div className="relative w-36 aspect-[4/.75]">
-          <Image
-            src="/logo.png"
-            alt="logo"
-            fill
-            className="object-contain"
-          />
+          <Image src="/logo.png" alt="logo" fill className="object-contain" />
         </div>
-        
+
         {/* links */}
         <ul className="md:flex hidden items-center gap-3.5 text-white">
           {navLinks.map((link) => (

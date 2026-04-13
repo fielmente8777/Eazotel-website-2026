@@ -1,3 +1,5 @@
+import { contacts } from "../../../contact";
+
 interface FooterLinksType {
   title: string;
   links: {
@@ -14,22 +16,23 @@ interface WebsiteFooterDataType {
 
 export const websiteFooterData: WebsiteFooterDataType = {
   logoSrc: "/logo.png",
-  description: "All-in-one hotel CRM and marketing platform that turns enquiries into direct bookings.",
+  description:
+    "All-in-one hotel CRM and marketing platform that turns enquiries into direct bookings.",
   listOfLinks: [
     {
       title: "Product",
       links: [
         {
           label: "Features",
-          href: "",
+          href: "#features",
         },
         {
           label: "Modules",
-          href: "",
+          href: "#modules",
         },
         {
           label: "How it works",
-          href: "",
+          href: "#how-it-works",
         },
       ],
     },
@@ -37,17 +40,25 @@ export const websiteFooterData: WebsiteFooterDataType = {
       title: "Company",
       links: [
         {
-          label: "About",
-          href: "",
+          label: "Blogs",
+          href: "/blogs",
         },
         {
           label: "Privacy Policy",
-          href: "",
+          href: "/privacy-policy",
         },
         {
-          label: "Contact",
-          href: "",
+          label: "Terms of Service",
+          href: "/terms-of-service",
         },
+        {
+          label: "Data Deletion Policy",
+          href: "/data-deletion",
+        },
+        // {
+        //   label: "Contact",
+        //   href: "",
+        // },
       ],
     },
     {
@@ -55,12 +66,12 @@ export const websiteFooterData: WebsiteFooterDataType = {
       links: [
         {
           label: "Book a demo",
-          href: "",
+          href: contacts.WhatsAppCta,
         },
-        {
-          label: "Whatsapp",
-          href: "",
-        },
+        // {
+        //   label: "Whatsapp",
+        //   href: "",
+        // },
       ],
     },
   ],

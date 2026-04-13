@@ -10,24 +10,24 @@ const Clients: React.FC<ClientsDataTypes> = ({ title, clients, cta }) => {
       <div className="grid grid-cols-6">
         <div className="grid grid-cols-6 col-span-6 divide-x border-x border-b divide-main-border border-main-border">
           {clients.slice(0, 6).map((client, index) => (
-            <div key={index} className="col-span-1 w-full aspect-4/2 relative">
+            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
               <Image
-                src={client}
+                src={client.src}
                 alt="client"
                 fill
-                className="object-contain"
+                className="object-contain px-3 py-4"
               />
             </div>
           ))}
         </div>
         <div className="grid grid-cols-2 col-span-2 divide-x border-x border-b divide-main-border border-main-border">
           {clients.slice(6, 8).map((client, index) => (
-            <div key={index} className="col-span-1 w-full aspect-4/2 relative">
+            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
               <Image
-                src={client}
+                src={client.src}
                 alt="client"
                 fill
-                className="object-contain"
+                className="object-contain px-3 py-4"
               />
             </div>
           ))}
@@ -52,48 +52,48 @@ const Clients: React.FC<ClientsDataTypes> = ({ title, clients, cta }) => {
         </div>
         <div className="grid grid-cols-2 col-span-2 divide-x border-x border-b divide-main-border border-main-border">
           {clients.slice(8, 10).map((client, index) => (
-            <div key={index} className="col-span-1 w-full aspect-4/2 relative">
+            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
               <Image
-                src={client}
+                src={client.src}
                 alt="client"
                 fill
-                className="object-contain"
+                className="object-contain px-3 py-4"
               />
             </div>
           ))}
         </div>
         <div className="grid grid-cols-2 col-span-2 divide-x border-x divide-main-border border-main-border">
           {clients.slice(10, 12).map((client, index) => (
-            <div key={index} className="col-span-1 w-full aspect-4/2 relative">
+            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
               <Image
-                src={client}
+                src={client.src}
                 alt="client"
                 fill
-                className="object-contain"
+                className="object-contain px-3 py-4"
               />
             </div>
           ))}
         </div>
         <div className="grid grid-cols-2 col-span-2 divide-x border-x divide-main-border border-main-border">
           {clients.slice(12, 14).map((client, index) => (
-            <div key={index} className="col-span-1 w-full aspect-4/2 relative">
+            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
               <Image
-                src={client}
+                src={client.src}
                 alt="client"
                 fill
-                className="object-contain"
+                className="object-contain px-3 py-4"
               />
             </div>
           ))}
         </div>
         <div className="grid grid-cols-6 col-span-6 divide-x border-x border-t divide-main-border border-main-border">
           {clients.slice(14).map((client, index) => (
-            <div key={index} className="col-span-1 w-full aspect-4/2 relative">
+            <div key={index} className="col-span-1 flex items-center justify-center w-full aspect-[4/1.85] relative">
               <Image
-                src={client}
+                src={client.src}
                 alt="client"
                 fill
-                className="object-contain"
+                className="object-contain px-3 py-4"
               />
             </div>
           ))}
