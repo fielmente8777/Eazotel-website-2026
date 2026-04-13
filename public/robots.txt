@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /login/
+Disallow: /checkout/
+Disallow: /thank-you/
+
+Sitemap: https://eazotel.com/sitemap.xml
