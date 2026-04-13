@@ -29,8 +29,11 @@ const CtaSection: React.FC<Props> = ({ title, description, cta }) => {
               {description}
             </p>
             <CtaBtn
-              type="button"
+              type="link"
               label={cta.label}
+              href={cta.href}
+              target="_blank"
+              
               className="border-none mx-auto w-full max-w-60 rounded-lg bg-color-4 text-white"
             />
           </div>

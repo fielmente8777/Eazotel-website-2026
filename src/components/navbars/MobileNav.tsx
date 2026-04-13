@@ -14,9 +14,13 @@ const MobileNav = () => {
   // ✅ store active dropdown index
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
-  // const handleDropdown = (index: number) => {
-  //   setOpenDropdown((prev) => (prev === index ? null : index));
-  // };
+  const scrollToSection = (sectionId: string) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMobileNavOpen(false);
+  };
 
   return (
     <div
@@ -37,15 +41,24 @@ const MobileNav = () => {
             const isActive = openDropdown === index;
 
             return (
-              <div key={index} className="text-lg">
-                <div className="flex items-center justify-between">
-                  <Link
-                    href={link.href || "#"}
-                    className="text-nowrap font-semibold capitalize text-white"
-                    onClick={() => setIsMobileNavOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
+              <ul key={index} className="text-lg">
+                <li className="flex items-center justify-between">
+                  {link.href.startsWith("#") ? (
+                    <button
+                      onClick={() => scrollToSection(link.href)}
+                      className="text-nowrap font-semibold capitalize text-white text-base"
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href || "#"}
+                      className="text-nowrap font-semibold capitalize text-white"
+                      onClick={() => setIsMobileNavOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
 
                   {/* {link.subLinks && (
                     <button
@@ -59,7 +72,7 @@ const MobileNav = () => {
                       />
                     </button>
                   )} */}
-                </div>
+                </li>
 
                 {isActive && link.subLinks && (
                   <ul className="flex flex-col gap-4 mt-4">
@@ -79,7 +92,7 @@ const MobileNav = () => {
                     ))}
                   </ul>
                 )}
-              </div>
+              </ul>
             );
           })}
         </nav>

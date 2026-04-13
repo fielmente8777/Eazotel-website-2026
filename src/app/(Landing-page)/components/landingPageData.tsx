@@ -447,7 +447,7 @@ export const landingPageData = {
       "See how Eazotel can increase your direct bookings. Book a free demo today.",
     cta: {
       label: "Book a Demo",
-      href: "",
+      href: contacts.WhatsAppCta,
     },
   },
   businessPartnersData: {
