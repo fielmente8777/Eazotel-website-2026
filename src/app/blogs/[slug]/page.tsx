@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GrFormNext } from "react-icons/gr";
 import { blogsData } from "../blogData";
+import { notFound } from "next/navigation";
 
 interface Params {
   params: {
@@ -25,6 +26,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const path = await params;
   const blogPost = blogsData.find((post) => post.slug === path.slug);
+
+  if (!blogPost) {
+    return {
+      title: "page not found",
+    };
+  }
 
   return {
     title: blogPost?.metadata.title,
@@ -69,20 +76,7 @@ export default async function Blog({ params }: Params) {
   const blog = await blogsData.find((post) => post.slug === path.slug);
 
   if (!blog) {
-    return (
-      <main>
-        <Section>
-          <Container className="space-y-6">
-            <p className="flex items-center gap-2 text-sm">
-              <Link href="/blogs" className="text-primary">
-                Blogs
-              </Link>
-              <GrFormNext /> Blog not found
-            </p>
-          </Container>
-        </Section>
-      </main>
-    );
+    notFound();
   }
 
   return (
