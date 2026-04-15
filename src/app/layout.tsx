@@ -58,7 +58,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${plusJakartaSans.variable} ${sofiaSans.variable} antialiased`}
+      suppressHydrationWarning={true}
+    >
       <head>
         {/* <Salesiq /> */}
         <Script id="zsiqscript" strategy="lazyOnload">
@@ -105,10 +109,7 @@ export default function RootLayout({
           })(window, document, 'script', 'dataLayer', 'GTM-WQ5LPRNM');`}
         </Script>
       </head>
-      <body
-        className={`${plusJakartaSans.variable} ${sofiaSans.variable} antialiased`}
-        suppressHydrationWarning={true}
-      >
+      <body>
         {/* <!-- Google Tag Manager (noscript) --> */}
         <noscript>
           <iframe
