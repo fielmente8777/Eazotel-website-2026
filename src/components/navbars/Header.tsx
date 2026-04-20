@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useAppContext } from "@/contextApi/AppContext";
 import MobileNav from "./MobileNav";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const { setIsMobileNavOpen } = useAppContext();
@@ -76,13 +77,22 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobileOrTablet]);
 
+
+  const router = useRouter();
+
   const scrollToSection = (sectionId: string) => {
-    const section = document.querySelector(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    const cleanId = sectionId.replace("#", "");
+
+    if (window.location.pathname !== "/") {
+      sessionStorage.setItem("scrollTarget", cleanId);
+      router.push("/");
+    } else {
+      const el = document.querySelector(`#${cleanId}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
-
   return (
     <>
       <header

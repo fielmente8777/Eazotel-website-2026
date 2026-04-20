@@ -2,14 +2,26 @@ import Link from "next/link";
 import { Container } from "../sectionComponants";
 import Image from "next/image";
 import { websiteFooterData } from "./footerData";
+import { useRouter } from "next/navigation";
 
 const WebSiteFooter = () => {
   const currentYear = new Date().getFullYear();
+  const router = useRouter();
+
   const scrollToSection = (sectionId: string) => {
-    const section = document.querySelector(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    const cleanId = sectionId.replace("#", "");
+
+    if (window.location.pathname !== "/") {
+      sessionStorage.setItem("scrollTarget", cleanId);
+      router.push("/");
+    } else {
+      const el = document.querySelector(`#${cleanId}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     }
+
+    // always close mobile nav
   };
   return (
     <footer className="max_screen_width bg-[#0A0A0C] md:py-10 max-md:pt-10 max-md:pb-10">

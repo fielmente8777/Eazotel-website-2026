@@ -4,21 +4,31 @@ import { useAppContext } from "@/contextApi/AppContext";
 import { IoClose } from "react-icons/io5";
 import { navLinks } from "./navLinks";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const MobileNav = () => {
   const { isMobileNavOpen, setIsMobileNavOpen } = useAppContext();
   const pathName = usePathname();
+  const router = useRouter();
 
   // ✅ store active dropdown index
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   const scrollToSection = (sectionId: string) => {
-    const section = document.querySelector(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    const cleanId = sectionId.replace("#", "");
+
+    if (window.location.pathname !== "/") {
+      sessionStorage.setItem("scrollTarget", cleanId);
+      router.push("/");
+    } else {
+      const el = document.querySelector(`#${cleanId}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     }
+
+    // always close mobile nav
     setIsMobileNavOpen(false);
   };
 
