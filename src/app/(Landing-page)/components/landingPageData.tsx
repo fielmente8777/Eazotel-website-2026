@@ -49,8 +49,8 @@ export const landingPageData = {
       {
         type: btnType,
         target: "_blank",
-        label: "See How It Works",
-        href: contacts.WhatsAppCta,
+        label: "Login to Dashboard",
+        href: "https://dashboard.eazotel.com/login",
       },
     ],
   },

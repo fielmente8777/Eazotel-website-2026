@@ -77,7 +77,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobileOrTablet]);
 
-
   const router = useRouter();
 
   const scrollToSection = (sectionId: string) => {
@@ -96,6 +95,9 @@ const Header = () => {
   return (
     <>
       <header
+        className={`max_screen_width bg-[#020208] md:pt-4 pb-1 fixed z-50`}
+      >
+        {/* <header
         className={`max_screen_width bg-[#020208] md:pt-4 pb-1 ${
           isMobileOrTablet
             ? `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
@@ -103,56 +105,58 @@ const Header = () => {
               }`
             : "relative"
         }`}
-      >
-        <nav className="max_width py-3 px-4! md:rounded-lg flex items-center bg-transparent! justify-between glassy-card">
-          {/* logo */}
-          <Link href="/" className="relative block w-36 aspect-[4/.75]">
-            <Image
-              src="/logo.png"
-              alt="logo"
-              fill
-              className="object-contain"
-              sizes="100vw"
+      > */}
+        <div>
+          <nav className="max_width py-3 px-4! md:rounded-lg flex items-center bg-transparent! justify-between glassy-card">
+            {/* logo */}
+            <Link href="/" className="relative block w-36 aspect-[4/.75]">
+              <Image
+                src="/logo.png"
+                alt="logo"
+                fill
+                className="object-contain"
+                sizes="100vw"
+              />
+            </Link>
+
+            {/* links */}
+            <ul className="md:flex hidden items-center gap-3.5 text-white">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <button
+                    onClick={() => scrollToSection(link.href)}
+                    className="p-2.5 cursor-pointer hover:text-color-4 transition-all duration-300 ease-in-out"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+            {/* cta buttons */}
+            <CtaBtn
+              label="Book a Demo"
+              type="link"
+              icon="arrow2"
+              href={contacts.WhatsAppCta}
+              iconClass="bg-transparent! text-white"
+              className="w-fit! bg-color-4 max-md:py-2 max-md:px-4 max-md:hidden text-white border-none rounded-lg"
             />
-          </Link>
 
-          {/* links */}
-          <ul className="md:flex hidden items-center gap-3.5 text-white">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <button
-                  onClick={() => scrollToSection(link.href)}
-                  className="p-2.5 cursor-pointer hover:text-color-4 transition-all duration-300 ease-in-out"
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-          {/* cta buttons */}
-          <CtaBtn
-            label="Book a Demo"
-            type="link"
-            icon="arrow2"
-            href={contacts.WhatsAppCta}
-            iconClass="bg-transparent! text-white"
-            className="w-fit! bg-color-4 max-md:py-2 max-md:px-4 max-md:hidden text-white border-none rounded-lg"
-          />
-
-          {/* menu */}
-          <button
-            onClick={() => setIsMobileNavOpen(true)}
-            className="md:hidden text-white max-md:py-2"
-          >
-            <span className="sr-only">Toggle navigation</span>
-            <MenuIcon />
-          </button>
-        </nav>
+            {/* menu */}
+            <button
+              onClick={() => setIsMobileNavOpen(true)}
+              className="md:hidden text-white max-md:py-2"
+            >
+              <span className="sr-only">Toggle navigation</span>
+              <MenuIcon />
+            </button>
+          </nav>
+        </div>
       </header>
       <div />
       <MobileNav />
 
-      {isMobileOrTablet && <div className="pt-[55px] md:pt-[100px]" />}
+      <div className="pt-[55px] md:pt-[100px] lg:pt-[90px]" />
     </>
   );
 };

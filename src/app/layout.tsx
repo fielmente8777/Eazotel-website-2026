@@ -65,7 +65,7 @@ export default function RootLayout({
     >
       <head>
         {/* <Salesiq /> */}
-        <Script id="zsiqscript" strategy="lazyOnload">
+        {/* <Script id="zsiqscript" strategy="lazyOnload">
           {`
           window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}`}
         </Script>
@@ -74,7 +74,32 @@ export default function RootLayout({
           strategy="lazyOnload"
           src="https://salesiq.zohopublic.in/widget?wc=siq3e552165893c13042e1d199f6774a60161bf7e2d236cee20afeec12690605bbe60e273bf1bbc69d76802e696c96db5df"
           defer
-        ></Script>
+        ></Script> */}
+        {/* <script>
+          {`window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}`}
+        </script>
+        <script
+          id="zsiqscript"
+          src="https://salesiq.zohopublic.in/widget?wc=siq3e552165893c13042e1d199f6774a60161bf7e2d236cee20afeec12690605bbe60e273bf1bbc69d76802e696c96db5df"
+          defer
+        ></script> */}
+
+        <script type="text/javascript" id="zsiqchat">
+          {`var $zoho = $zoho || {};
+            $zoho.salesiq = $zoho.salesiq || {
+              widgetcode: "siq3e552165893c13042e1d199f6774a60161bf7e2d236cee20afeec12690605bbe60e273bf1bbc69d76802e696c96db5df",
+              values: {},
+              ready: function(){}
+            };
+            var d = document;
+            s = d.createElement("script");
+            s.type = "text/javascript";
+            s.id = "zsiqscript";
+            s.defer = true;
+            s.src = "https://salesiq.zoho.in/widget";
+            t = d.getElementsByTagName("script")[0];
+            t.parentNode.insertBefore(s, t);`}
+        </script>
         {/* microsoft clarity */}
         <Script type="text/javascript" id="clarity" strategy="lazyOnload">
           {` (function (c, l, a, r, i, t, y) {

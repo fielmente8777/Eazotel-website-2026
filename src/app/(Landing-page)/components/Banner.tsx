@@ -1,5 +1,6 @@
+"use client";
 import { CtaBtnPropsType } from "@/@types/@types";
-import { CtaBtn } from "@/components/buttons/CtaBtn";
+import { ArrowBtn2, CtaBtn } from "@/components/buttons/CtaBtn";
 import { SectionWithContainer } from "@/components/sectionComponants";
 import { SectionHeading } from "@/components/typography";
 import Image from "next/image";
@@ -19,8 +20,11 @@ const Banner: React.FC<Props> = ({
   images,
   actions,
 }) => {
+  const handleClick = () => {
+    window.open(actions[1].href, "_blank");
+  };
   return (
-    <SectionWithContainer sectionClassName="bnr" >
+    <SectionWithContainer sectionClassName="bnr">
       <div className="flex flex-col md:gap-7 gap-4">
         <SectionHeading
           title={title}
@@ -37,7 +41,7 @@ const Banner: React.FC<Props> = ({
           {description[0]}
         </p>
         <div className="flex items-center justify-center md:gap-4 gap-2">
-          {actions.map((action, index) => (
+          {/* {actions.map((action, index) => (
             <CtaBtn
               label={action.label}
               href={action.href}
@@ -48,7 +52,28 @@ const Banner: React.FC<Props> = ({
               iconClass="bg-transparent!"
               className={`rounded-lg border-none max-md:text-sm max-md:px-4  ${index === 0 ? "bg-white text-color-4 max-md:h-12" : "bg-white/10 backdrop-blur-md text-white shadow-inner"}`}
             />
-          ))}
+          ))} */}
+          <CtaBtn
+            label={actions[0].label}
+            href={actions[0].href}
+            type={actions[0].type}
+            target={actions[0].target}
+            icon="none"
+            iconClass="bg-transparent!"
+            className={`rounded-lg border-none max-md:text-sm max-md:px-4 bg-white text-color-4 max-md:h-12`}
+          />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleClick();
+            }}
+            className="rounded-lg border-none max-md:text-sm max-md:px-4  bg-white/10 backdrop-blur-md text-white shadow-inner px-6 py-3 flex items-center gap-2"
+          >
+            {actions[1].label}
+            <span>
+              <ArrowBtn2 />
+            </span>
+          </button>
         </div>
         <div className="md:max-w-227.5 mt-8 w-full mx-auto relative aspect-[4/2.4] lg:aspect-[4/2.4] rounded-2xl overflow-hidden">
           <Image
