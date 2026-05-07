@@ -44,6 +44,10 @@ export const websiteFooterData: WebsiteFooterDataType = {
           href: "/blogs",
         },
         {
+          label: "Pricing",
+          href: "/pricing",
+        },
+        {
           label: "Privacy Policy",
           href: "/privacy-policy",
         },
