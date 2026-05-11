@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useAppContext } from "@/contextApi/AppContext";
 import MobileNav from "./MobileNav";
 import { useRouter } from "next/navigation";
+import { MdOutlineArrowDropDown } from "react-icons/md";
 
 const Header = () => {
   const { setIsMobileNavOpen } = useAppContext();
@@ -120,17 +121,44 @@ const Header = () => {
             </Link>
 
             {/* links */}
-            <ul className="md:flex hidden items-center gap-3.5 text-white">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="p-2.5 cursor-pointer hover:text-color-4 transition-all duration-300 ease-in-out"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
+            <ul className="md:flex hidden items-center gap-5 text-white">
+              {navLinks.map((link, index) => {
+                return (
+                  <li key={index} className="relative nav">
+                    <Link
+                      href={link.href ? link.href : "#"}
+                      className="relative text-nowrap py-2 font-semibold capitalize flex items-center gap-1"
+                    >
+                      {link.label}
+
+                      <span className="span-border"></span>
+
+                      {link.subLinks && (
+                        <span className="icon duration-300 transition-all ease-in-out">
+                          <MdOutlineArrowDropDown />
+                        </span>
+                      )}
+                    </Link>
+
+                    {link.subLinks && (
+                      <div className="nav-1">
+                        {link.subLinks.map((subLink, subIndex) => {
+                          return (
+                            <Link key={subIndex} href={subLink.href || "#"}>
+                              {/* <span className="mega-icon">
+                    {subLink.icon}
+                  </span> */}
+
+                              <span>{subLink.label}</span>
+                              <span>{subLink.description}</span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
             {/* cta buttons */}
             <CtaBtn

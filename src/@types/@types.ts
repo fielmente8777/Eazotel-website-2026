@@ -12,7 +12,10 @@ export interface CtaBtnPropsType {
 export interface NavLinksProps {
   href: string;
   label: string;
+  description?: string;
+  
   subLinks?: NavLinksProps[];
+  
 }
 
 export interface BannerPropsType {
