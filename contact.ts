@@ -6,6 +6,7 @@ export const contacts = {
     // "+91 81789 39108",
     "+91 95018 68775",
   ],
+  
   WhatsAppCta:
     "https://wa.me/+919501868775?text=Hello+I+would+like+to+know+more+about+Fielmente+Hospitality+Marketing+Agency",
   addressesInIndia: [
