@@ -20,8 +20,8 @@ const Banner: React.FC<Props> = ({
   images,
   actions,
 }) => {
-  const handleClick = () => {
-    window.open(actions[1].href, "_blank");
+  const handleClick = (link: string) => {
+    window.open(link, "_blank");
   };
   return (
     <SectionWithContainer sectionClassName="bnr">
@@ -53,7 +53,7 @@ const Banner: React.FC<Props> = ({
               className={`rounded-lg border-none max-md:text-sm max-md:px-4  ${index === 0 ? "bg-white text-color-4 max-md:h-12" : "bg-white/10 backdrop-blur-md text-white shadow-inner"}`}
             />
           ))} */}
-          <CtaBtn
+          {/* <CtaBtn
             label={actions[0].label}
             href={actions[0].href}
             type={actions[0].type}
@@ -61,11 +61,23 @@ const Banner: React.FC<Props> = ({
             icon="none"
             iconClass="bg-transparent!"
             className={`rounded-lg border-none max-md:text-sm max-md:px-4 bg-white text-color-4 max-md:h-12`}
-          />
+          /> */}
           <button
             onClick={(e) => {
               e.preventDefault();
-              handleClick();
+              handleClick(String(actions[0].href));
+            }}
+            className="transition-all text-nowrap max-md:w-full flex items-center gap-2 justify-center font-medium border duration-300 ease-in-out hover:scale-x-105 active:scale-95 hover:shadow-2xl px-6 py-3 rounded-lg border-none max-md:text-sm max-md:px-4 bg-white text-color-4 max-md:h-12"
+          >
+            {actions[0].label}
+            <span>
+              <ArrowBtn2 />
+            </span>
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleClick(String(actions[1].href));
             }}
             className="rounded-lg border-none max-md:text-sm max-md:px-4  bg-white/10 backdrop-blur-md text-white shadow-inner px-6 py-3 flex items-center gap-2"
           >

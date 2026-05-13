@@ -93,7 +93,7 @@ const Header = () => {
     }
   };
   return (
-    <>
+    <div className="flex justify-center">
       <header
         className={`max_screen_width bg-[#020208] md:pt-4 pb-1 fixed z-50`}
       >
@@ -133,14 +133,27 @@ const Header = () => {
               ))}
             </ul>
             {/* cta buttons */}
-            <CtaBtn
-              label="Book a Demo"
-              type="link"
-              icon="arrow2"
-              href={contacts.WhatsAppCta}
-              iconClass="bg-transparent! text-white"
-              className="w-fit! bg-color-4 max-md:py-2 max-md:px-4 max-md:hidden text-white border-none rounded-lg"
-            />
+            <div className="flex gap-2">
+
+              <CtaBtn
+                label="Start For FREE"
+                type="link"
+                icon="arrow2"
+                href={contacts.onboardingUrl}
+                target="_blank"
+                iconClass="bg-transparent! text-white"
+                className="w-fit! bg-orange-500 max-md:py-2 max-md:px-4 max-md:hidden text-white border-none rounded-lg"
+              />
+              <CtaBtn
+                label="Book a Demo"
+                type="link"
+                icon="arrow2"
+                href={contacts.WhatsAppCta}
+                iconClass="bg-transparent! text-white"
+                className="w-fit! bg-color-4 max-md:py-2 max-md:px-4 max-md:hidden text-white border-none rounded-lg"
+              />
+            </div>
+
 
             {/* menu */}
             <button
@@ -157,7 +170,7 @@ const Header = () => {
       <MobileNav />
 
       <div className="pt-[55px] md:pt-[100px] lg:pt-[90px]" />
-    </>
+    </div>
   );
 };
 

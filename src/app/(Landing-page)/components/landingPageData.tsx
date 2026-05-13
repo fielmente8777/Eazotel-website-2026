@@ -43,8 +43,8 @@ export const landingPageData = {
       {
         type: btnType,
         target: "_blank",
-        label: "Get a Free Demo",
-        href: contacts.WhatsAppCta,
+        label: "Start 14-Day FREE Trial",
+        href: "https://onboarding.eazotel.com/sign-in",
       },
       {
         type: btnType,
@@ -340,7 +340,7 @@ export const landingPageData = {
     ],
     cta: {
       label: "Get Started With Eazotel",
-      href: contacts.WhatsAppCta,
+      href: contacts.onboardingUrl,
     },
     note: "Trusted by 500+ hotels",
   },

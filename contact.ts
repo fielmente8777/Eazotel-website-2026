@@ -7,6 +7,8 @@ export const contacts = {
     "+91 95018 68775",
   ],
   
+  onboardingUrl:"https://onboarding.eazotel.com/sign-in",
+  // onboardingUrl:"http://localhost:3001/sign-in",
   WhatsAppCta:
     "https://wa.me/+919501868775?text=Hello+I+would+like+to+know+more+about+Fielmente+Hospitality+Marketing+Agency",
   addressesInIndia: [
