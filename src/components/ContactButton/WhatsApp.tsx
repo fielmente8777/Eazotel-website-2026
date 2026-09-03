@@ -36,7 +36,7 @@ function Whatsapp() {
 
   const formattedNumber = selectedNumber.replace(/\s+/g, "");
 
-  const whatsappUrl = `https://wa.me/${formattedNumber}?text=Hello%20I%20would%20like%20to%20know%20more%20about%20Fielmente%20Hospitality%20Marketing%20Agency`;
+  const whatsappUrl = `https://wa.me/${formattedNumber}?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Eazotel%20AI%20Hospitality%20Marketing%20Solutions`;
 
   return (
     <div
