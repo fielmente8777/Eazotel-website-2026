@@ -1,8 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import { Container } from "../sectionComponants";
 import Image from "next/image";
 import { websiteFooterData } from "./footerData";
 import { useRouter } from "next/navigation";
+
+declare global {
+  interface Window {
+    oaiq?: (
+      command: string,
+      event: string,
+      data?: Record<string, unknown>
+    ) => void;
+  }
+}
 
 const WebSiteFooter = () => {
   const currentYear = new Date().getFullYear();
@@ -64,6 +76,13 @@ const WebSiteFooter = () => {
                         <Link
                           href={link.href}
                           className="text-[#FFFFFFB2] hover:text-secondary transition-all duration-300 ease-in-out cursor-pointer"
+                          onClick={() => {
+                            if (link.label === "Our Services" && window.oaiq) {
+                              window.oaiq("measure", "page_viewed", {
+                                type: "contents",
+                              });
+                            }
+                          }}
                         >
                           {link.label}
                         </Link>

@@ -6,11 +6,12 @@ export const contacts = {
     // "+91 81789 39108",
     "+91 95018 68775",
   ],
-  
-  onboardingUrl:"https://onboarding.eazotel.com/sign-in",
+
+  onboardingUrl: "https://onboarding.eazotel.com/sign-in",
   // onboardingUrl:"http://localhost:3001/sign-in",
   WhatsAppCta:
-    "https://wa.me/+919501868775?text=Hello+I+would+like+to+know+more+about+Fielmente+Hospitality+Marketing+Agency",
+    "https://wa.me/+919501868775?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Eazotel%20AI%20Hospitality%20Marketing%20Solutions",
+
   addressesInIndia: [
     {
       address:

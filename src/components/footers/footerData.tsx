@@ -72,6 +72,10 @@ export const websiteFooterData: WebsiteFooterDataType = {
           label: "Book a demo",
           href: contacts.WhatsAppCta,
         },
+        {
+          label: "Our Services",
+          href: "https://www.fielmente.com",
+        },
         // {
         //   label: "Whatsapp",
         //   href: "",
