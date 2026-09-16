@@ -120,7 +120,7 @@ const Header = () => {
             </Link>
 
             {/* links */}
-            <ul className="md:flex hidden items-center gap-3.5 text-white">
+            {/* <ul className="md:flex hidden items-center gap-3.5 text-white">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <button
@@ -131,10 +131,31 @@ const Header = () => {
                   </button>
                 </li>
               ))}
+            </ul> */}
+            {/* links */}
+            <ul className="md:flex hidden items-center gap-3.5 text-white">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  {link.href.startsWith("#") ? (
+                    <button
+                      onClick={() => scrollToSection(link.href)}
+                      className="p-2.5 cursor-pointer hover:text-color-4 transition-all duration-300 ease-in-out"
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="p-2.5 cursor-pointer hover:text-color-4 transition-all duration-300 ease-in-out"
+                    >
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              ))}
             </ul>
             {/* cta buttons */}
             <div className="flex gap-2">
-
               <CtaBtn
                 label="Start For FREE"
                 type="link"
@@ -153,7 +174,6 @@ const Header = () => {
                 className="w-fit! bg-color-4 max-md:py-2 max-md:px-4 max-md:hidden text-white border-none rounded-lg"
               />
             </div>
-
 
             {/* menu */}
             <button

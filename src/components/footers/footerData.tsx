@@ -34,6 +34,10 @@ export const websiteFooterData: WebsiteFooterDataType = {
           label: "How it works",
           href: "#how-it-works",
         },
+        {
+          label: "Our Services",
+          href: "https://www.fielmente.com",
+        },
       ],
     },
     {

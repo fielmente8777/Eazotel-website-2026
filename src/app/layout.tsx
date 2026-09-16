@@ -84,7 +84,7 @@ export default function RootLayout({
           defer
         ></script> */}
 
-        <script type="text/javascript" id="zsiqchat">
+         <script type="text/javascript" id="zsiqchat">
           {`var $zoho = $zoho || {};
             $zoho.salesiq = $zoho.salesiq || {
               widgetcode: "siq3e552165893c13042e1d199f6774a60161bf7e2d236cee20afeec12690605bbe60e273bf1bbc69d76802e696c96db5df",
