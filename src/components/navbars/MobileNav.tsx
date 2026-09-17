@@ -53,7 +53,7 @@ const MobileNav = () => {
             return (
               <ul key={index} className="text-lg">
                 <li className="flex items-center justify-between">
-                  {link.href.startsWith("#") ? (
+                  {/* {link.href.startsWith("#") ? (
                     <button
                       onClick={() => scrollToSection(link.href)}
                       className="text-nowrap font-semibold capitalize text-white text-base"
@@ -68,8 +68,35 @@ const MobileNav = () => {
                     >
                       {link.label}
                     </Link>
+                  )} */}
+                  {link.label === "Our Services" ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsMobileNavOpen(false);
+                        window.location.href = "https://www.fielmente.com";
+                      }}
+                      className="text-nowrap font-semibold capitalize text-white text-base"
+                    >
+                      {link.label}
+                    </button>
+                  ) : link.href.startsWith("#") ? (
+                    <button
+                      type="button"
+                      onClick={() => scrollToSection(link.href)}
+                      className="text-nowrap font-semibold capitalize text-white text-base"
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href || "#"}
+                      className="text-nowrap font-semibold capitalize text-white"
+                      onClick={() => setIsMobileNavOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
                   )}
-
                   {/* {link.subLinks && (
                     <button
                       onClick={() => handleDropdown(index)}

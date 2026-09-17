@@ -65,7 +65,23 @@ const WebSiteFooter = () => {
                 <ul className="flex flex-col md:gap-5 gap-4">
                   {item.links.map((link, index) => (
                     <li key={index}>
-                      {link.href.startsWith("#") ? (
+                      {link.label === "Our Services" ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (window.oaiq) {
+                              window.oaiq("measure", "page_viewed", {
+                                type: "contents",
+                              });
+                            }
+
+                            window.location.href = "https://www.fielmente.com";
+                          }}
+                          className="text-[#FFFFFFB2] hover:text-secondary transition-all duration-300 ease-in-out cursor-pointer"
+                        >
+                          {link.label}
+                        </button>
+                      ) : link.href.startsWith("#") ? (
                         <button
                           onClick={() => scrollToSection(link.href)}
                           className="text-[#FFFFFFB2] hover:text-secondary transition-all duration-300 ease-in-out cursor-pointer"
@@ -76,13 +92,6 @@ const WebSiteFooter = () => {
                         <Link
                           href={link.href}
                           className="text-[#FFFFFFB2] hover:text-secondary transition-all duration-300 ease-in-out cursor-pointer"
-                          onClick={() => {
-                            if (link.label === "Our Services" && window.oaiq) {
-                              window.oaiq("measure", "page_viewed", {
-                                type: "contents",
-                              });
-                            }
-                          }}
                         >
                           {link.label}
                         </Link>
