@@ -115,7 +115,7 @@ const Header = () => {
                 alt="logo"
                 fill
                 className="object-contain"
-                sizes="100vw"
+                sizes="144px"
               />
             </Link>
 

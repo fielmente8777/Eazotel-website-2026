@@ -2,6 +2,7 @@ import Whatsapp from "@/components/ContactButton/WhatsApp";
 import Footer from "@/components/footers/Footer";
 import { NavBar } from "@/components/navbars";
 import { AppProvider } from "@/contextApi/AppContext";
+import StoreProvider from "@/store/StoreProvider";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Sofia_Sans } from "next/font/google";
 import Script from "next/script";
@@ -84,22 +85,23 @@ export default function RootLayout({
           defer
         ></script> */}
 
-         <script type="text/javascript" id="zsiqchat">
-          {`var $zoho = $zoho || {};
+        {/* Zoho SalesIQ — loaded after hydration; a raw <script> here injected
+            a tag into <head> before React hydrated and caused a mismatch. */}
+        <Script id="zsiqchat" strategy="afterInteractive">
+          {`window.$zoho = window.$zoho || {};
             $zoho.salesiq = $zoho.salesiq || {
               widgetcode: "siq3e552165893c13042e1d199f6774a60161bf7e2d236cee20afeec12690605bbe60e273bf1bbc69d76802e696c96db5df",
               values: {},
               ready: function(){}
             };
             var d = document;
-            s = d.createElement("script");
+            var s = d.createElement("script");
             s.type = "text/javascript";
             s.id = "zsiqscript";
             s.defer = true;
             s.src = "https://salesiq.zoho.in/widget";
-            t = d.getElementsByTagName("script")[0];
-            t.parentNode.insertBefore(s, t);`}
-        </script>
+            d.body.appendChild(s);`}
+        </Script>
         {/* microsoft clarity */}
         <Script type="text/javascript" id="clarity" strategy="lazyOnload">
           {` (function (c, l, a, r, i, t, y) {
@@ -165,7 +167,8 @@ export default function RootLayout({
           })(window, document, 'script', 'dataLayer', 'GTM-WQ5LPRNM');`}
         </Script>
       </head>
-      <body>
+      {/* Extensions like Grammarly add data-* attributes to <body> before hydration. */}
+      <body suppressHydrationWarning>
         {/* <!-- Google Tag Manager (noscript) --> */}
         <noscript>
           <iframe
@@ -176,12 +179,14 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
-        <AppProvider>
-          <NavBar />
-          {children}
-          <Footer />
-          <Whatsapp />
-        </AppProvider>
+        <StoreProvider>
+          <AppProvider>
+            <NavBar />
+            {children}
+            <Footer />
+            <Whatsapp />
+          </AppProvider>
+        </StoreProvider>
       </body>
     </html>
   );

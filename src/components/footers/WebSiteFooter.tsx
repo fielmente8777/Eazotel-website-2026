@@ -51,7 +51,7 @@ const WebSiteFooter = () => {
                 className="object-cover"
                 priority
                 loading="eager"
-                sizes="100vw"
+                sizes="179px"
               />
             </Link>
             <p className="text-white text-lg">
