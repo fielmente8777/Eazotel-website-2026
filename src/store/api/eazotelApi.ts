@@ -91,7 +91,11 @@ const buildWebsitePayload = (req: CreateWebsiteRequest) => ({
   template: "1",
   hotelName: req.hotelName,
   hotelPhone: req.hotelPhone,
-  hotelAddress: [req.city, req.state].filter(Boolean).join(", ") || "addr",
+  // nexon names the first location after hotelAddress when one is given, and
+  // after hotelName when it is empty. There is no street address in this form
+  // (city/state go in their own fields), so leave it empty like the dashboard's
+  // onboarding does; otherwise the location switcher shows "Kolkata, West Bengal".
+  hotelAddress: "",
   hotelState: req.state,
   hotelCity: req.city,
   hotelCountry: req.country,
