@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { eazotelApi } from "../api/eazotelApi";
-import { persistToken, setToken } from "./authSlice";
+import { logout, persistToken, setToken } from "./authSlice";
 import type { RootState } from "../store";
 
 export type OnboardingStep = "account" | "property" | "launch" | "success";
@@ -112,14 +112,32 @@ export const saveProgress = (state: OnboardingState) => {
 // Templates the generator picks from, same set as the original flow.
 const TEMPLATES = ["1", "2", "5", "6"];
 
+// nexon sometimes sends a raw Python exception as the message, e.g.
+// "('Unable to decode token error : {}', AttributeError(...))".
+// Never show those to the hotel.
+const looksLikeServerCrash = (text: string) =>
+  /^\(|Error\(|Traceback|NoneType/.test(text);
+
 const errorMessage = (err: unknown, fallback: string) => {
   if (err && typeof err === "object") {
     const e = err as { data?: { Message?: string; message?: string } };
-    if (e.data?.Message) return e.data.Message;
-    if (e.data?.message) return e.data.message;
+    const text = e.data?.Message || e.data?.message;
+    if (text && !looksLikeServerCrash(text)) return text;
   }
   return fallback;
 };
+
+// The token saved in this browser is no longer accepted (expired, or left over
+// from another account). LaunchStep shows a "Log in again" button for this.
+export const SESSION_EXPIRED_MESSAGE =
+  "Your sign-in has expired. Log in again to finish setting up your website.";
+
+const isTokenRejected = (text: string | undefined) =>
+  !!text && /decode token|invalid token|token.*expired/i.test(text);
+
+const rawMessage = (err: unknown) =>
+  (err as { data?: { Message?: string; message?: string } })?.data?.Message ||
+  (err as { data?: { Message?: string; message?: string } })?.data?.message;
 
 /**
  * Runs the full launch sequence:
@@ -183,14 +201,27 @@ export const launchOnboarding = createAsyncThunk<
         })
       ).unwrap();
       if (!res.Status) {
+        if (isTokenRejected(res.Message)) {
+          persistToken(null);
+          dispatch(logout());
+          return rejectWithValue(SESSION_EXPIRED_MESSAGE);
+        }
         return rejectWithValue(
-          res.Message || "We couldn't generate your website. Please try again."
+          errorMessage(
+            { data: res },
+            "We couldn't generate your website. Please try again."
+          )
         );
       }
       websiteLink = res.websiteLink ?? null;
       engineLink = res.engineLink ?? null;
       dispatch(setWebsiteCreated({ websiteLink, engineLink }));
     } catch (err) {
+      if (isTokenRejected(rawMessage(err))) {
+        persistToken(null);
+        dispatch(logout());
+        return rejectWithValue(SESSION_EXPIRED_MESSAGE);
+      }
       return rejectWithValue(
         errorMessage(err, "We couldn't reach the server. Please try again.")
       );

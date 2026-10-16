@@ -6,8 +6,10 @@ import {
   LaunchStage,
   launchOnboarding,
   OnboardingStep,
+  SESSION_EXPIRED_MESSAGE,
 } from "@/store/slices/onboardingSlice";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiArrowLeft, FiCheck, FiEdit2, FiLoader, FiZap } from "react-icons/fi";
 import { Alert, Button } from "../ui";
@@ -34,6 +36,9 @@ const LaunchStep = () => {
     : STAGES.filter((s) => s.id !== "account");
   const activeIdx = stages.findIndex((s) => s.id === launchStage);
   const alreadyRegistered = error?.toLowerCase().includes("already registered");
+  // the saved token was rejected and has been cleared: retrying can't work, logging in can
+  const sessionExpired = error === SESSION_EXPIRED_MESSAGE;
+  const router = useRouter();
 
   const rows: { label: string; value: string; step: OnboardingStep }[] = [
     { label: "Property", value: form.hotelName, step: "account" },
@@ -141,12 +146,16 @@ const LaunchStep = () => {
             variant="accent"
             icon={<FiZap />}
             onClick={() => {
+              if (sessionExpired) {
+                router.push("/login/");
+                return;
+              }
               setWithAccountStage(!signedIn);
               dispatch(launchOnboarding());
             }}
             className="flex-1"
           >
-            {error ? "Try again" : "Launch my website"}
+            {sessionExpired ? "Log in again" : error ? "Try again" : "Launch my website"}
           </Button>
         </div>
       )}
