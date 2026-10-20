@@ -7,6 +7,7 @@ export const DASHBOARD_URL = "https://dashboard.eazotel.com";
 export const GIAN_API_URL = "https://gian-1eve.onrender.com/api/v1";
 export const ONBOARDING_API_URL = `${GIAN_API_URL}/onboarding`;
 export const SUBSCRIPTION_API_URL = `${GIAN_API_URL}/subscription/my`;
+export const PROPERTY_LOOKUP_URL = `${GIAN_API_URL}/onboarding/lookup`;
 
 // ---------- response / request types ----------
 
@@ -84,6 +85,25 @@ export interface ReverseGeocodeResponse {
   postcode?: string;
 }
 
+// One Google Maps listing from gian's /onboarding/lookup.
+export interface PropertyMatch {
+  placeId: string;
+  title: string;
+  fullAddress: string;
+  type: string;
+  rating: number | null;
+  thumbnail: string;
+  details: {
+    hotelName: string;
+    city: string;
+    state: string;
+    country: string;
+    pinCode: string;
+    hotelPhone: string;
+    accommodationType: string;
+  };
+}
+
 // Defaults the Eazotel backend expects when a website is generated. The hotel
 // can change all of these later from the dashboard.
 const buildWebsitePayload = (req: CreateWebsiteRequest) => ({
@@ -91,11 +111,10 @@ const buildWebsitePayload = (req: CreateWebsiteRequest) => ({
   template: "1",
   hotelName: req.hotelName,
   hotelPhone: req.hotelPhone,
-  // nexon names the first location after hotelAddress when one is given, and
-  // after hotelName when it is empty. There is no street address in this form
-  // (city/state go in their own fields), so leave it empty like the dashboard's
-  // onboarding does; otherwise the location switcher shows "Kolkata, West Bengal".
-  hotelAddress: "",
+  // nexon copies hotelAddress into the first location's `local`, which both
+  // dashboards show as the property name (an empty one stays empty, it does
+  // not fall back to hotelName). So it gets the hotel name, not an address.
+  hotelAddress: req.hotelName,
   hotelState: req.state,
   hotelCity: req.city,
   hotelCountry: req.country,
@@ -271,6 +290,17 @@ export const eazotelApi = createApi({
       }
     ),
 
+    // Absolute URL — finds the property on Google Maps by its name (q) or by
+    // the website domain of a work email, to pre-fill the form.
+    lookupProperty: builder.query<
+      PropertyMatch[],
+      { q: string } | { email: string }
+    >({
+      query: (params) => ({ url: PROPERTY_LOOKUP_URL, params }),
+      transformResponse: (res: { result?: { matches?: PropertyMatch[] } }) =>
+        res.result?.matches ?? [],
+    }),
+
     // Absolute URL — fetchBaseQuery skips the baseUrl for absolute URLs.
     reverseGeocode: builder.query<
       ReverseGeocodeResponse,
@@ -291,6 +321,7 @@ export const {
   useCreateOnboardingMutation,
   useLazyHasSubscriptionQuery,
   useChangeTemplateMutation,
+  useLookupPropertyQuery,
   useLazyReverseGeocodeQuery,
 } = eazotelApi;
 

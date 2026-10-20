@@ -35,6 +35,9 @@ export interface OnboardingForm {
   email: string;
   password: string;
   countryCode: string;
+  // Alpha-3 country behind countryCode, as +1/+7 are shared. Empty until the
+  // hotel picks one or it is detected from the device time zone.
+  countryIso?: string;
   phone: string;
   category: string;
   city: string;
@@ -58,6 +61,7 @@ const initialForm: OnboardingForm = {
   email: "",
   password: "",
   countryCode: "+91",
+  countryIso: "",
   phone: "",
   category: "Hotel",
   city: "",

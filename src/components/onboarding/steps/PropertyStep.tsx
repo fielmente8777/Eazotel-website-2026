@@ -8,8 +8,8 @@ import {
   PROPERTY_CATEGORIES,
   updateForm,
 } from "@/store/slices/onboardingSlice";
-import { countries } from "@/utils/countryCode";
-import { useState } from "react";
+import { detectCountry } from "@/utils/countryMeta";
+import { useEffect, useState } from "react";
 import {
   FiArrowLeft,
   FiArrowRight,
@@ -18,6 +18,7 @@ import {
   FiMapPin,
   FiPhone,
 } from "react-icons/fi";
+import CountryCodePicker from "../CountryCodePicker";
 import { Button, FieldError, TextField } from "../ui";
 import { FormErrors, validateProperty } from "../validation";
 
@@ -28,6 +29,16 @@ const PropertyStep = () => {
   const [locating, setLocating] = useState(false);
   const [locateError, setLocateError] = useState<string | null>(null);
   const [reverseGeocode] = useLazyReverseGeocodeQuery();
+
+  // Default the code to the visitor's country (from the device time zone),
+  // unless a code was already picked or a phone came in from Google.
+  useEffect(() => {
+    if (form.countryIso || form.phone) return;
+    const country = detectCountry();
+    dispatch(updateForm({ countryCode: country.code, countryIso: country.iso3 }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
 
   const set =
     (field: keyof OnboardingForm) =>
@@ -133,18 +144,13 @@ const PropertyStep = () => {
         <div
           className={`flex rounded-lg border bg-[#1E1E1E] transition-all focus-within:border-color-4 focus-within:ring-2 focus-within:ring-color-4/30 ${errors.phone ? "border-[#FF6161]/70" : "border-white/10"}`}
         >
-          <select
-            aria-label="Country code"
-            value={form.countryCode}
-            onChange={set("countryCode")}
-            className="cursor-pointer rounded-l-lg border-r border-white/10 bg-transparent py-3.5 pr-2 pl-3 text-white outline-none [&>option]:bg-[#1E1E1E]"
-          >
-            {countries.map((c) => (
-              <option key={`${c.name}-${c.code}`} value={c.code}>
-                {c.name} {c.code}
-              </option>
-            ))}
-          </select>
+          <CountryCodePicker
+            code={form.countryCode}
+            iso3={form.countryIso}
+            onChange={(c) =>
+              dispatch(updateForm({ countryCode: c.code, countryIso: c.iso3 }))
+            }
+          />
           <div className="relative flex-1">
             <FiPhone className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-[#9EA3AB]" />
             <input

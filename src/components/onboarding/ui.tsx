@@ -27,7 +27,7 @@ export const OnboardingShell: React.FC<ShellProps> = ({ aside, children }) => (
       className="pointer-events-none absolute inset-0 -z-10 opacity-[0.07] [background-image:linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]"
     />
 
-    <div className="max_width grid items-start gap-10 py-10 md:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <div className="max_width grid items-start gap-10 py-10 md:py-16 lg:grid-cols-2 lg:gap-16">
       <aside className="flex flex-col gap-8 lg:sticky lg:top-32">{aside}</aside>
       <div>{children}</div>
     </div>

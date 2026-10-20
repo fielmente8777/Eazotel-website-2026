@@ -6,6 +6,7 @@ import { goToStep, resetOnboarding, updateForm } from "@/store/slices/onboarding
 import Link from "next/link";
 import { useState } from "react";
 import { FiArrowRight, FiHome, FiLock, FiMail, FiUserCheck } from "react-icons/fi";
+import PropertyLookup, { matchToForm } from "../PropertyLookup";
 import { Button, PasswordField, TextField } from "../ui";
 import { FormErrors, passwordScore, validateAccount } from "../validation";
 
@@ -92,6 +93,15 @@ const AccountStep = () => {
         onChange={set("email")}
         error={errors.email}
         autoComplete="email"
+      />
+
+      <PropertyLookup
+        hotelName={form.hotelName}
+        email={form.email}
+        onPick={(match) => {
+          dispatch(updateForm(matchToForm(match)));
+          setErrors((prev) => ({ ...prev, hotelName: undefined }));
+        }}
       />
 
       {!signedIn && (
