@@ -1739,6 +1739,7 @@ export const blogsData = [
 
   `,
   },
+  
   {
     slug: "hotel-website-builder-create-a-website-that-supports-direct-bookings",
     title:
