@@ -140,13 +140,6 @@ export const landingPageData = {
     ],
     cards: [
       {
-        title: "CRM Voice Recording Notes (Preview)",
-        description:
-          "A preview of voice notes with audio playback and written details, designed to help hotel teams keep guest conversation context together for follow-ups and shift handovers.",
-        image: "/landing-page/feature-voice-notes.jpg",
-        containImage: true,
-      },
-      {
         title: "Meta Lead Ads",
         description:
           "Capture Facebook and Instagram leads instantly into your CRM.",

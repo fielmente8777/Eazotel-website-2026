@@ -1739,7 +1739,7 @@ export const blogsData = [
 
   `,
   },
-  
+
   {
     slug: "hotel-website-builder-create-a-website-that-supports-direct-bookings",
     title:
@@ -7659,5 +7659,132 @@ export const blogsData = [
       <li>AI Hospitality Platform: Connect Hotel Marketing, Conversations and Bookings</li>
     </ul>
   `,
+  },
+  {
+    slug: "crm-voice-recording-notes-hotel-crm",
+    title:
+      "CRM Voice Recording Notes: How Hotels Can Turn Every Guest Conversation into Better Service and More Bookings",
+    description:
+      "Discover how CRM voice recording notes help hotels capture guest conversations, streamline follow-ups, improve team coordination, and manage enquiries with Eazotel.",
+    metadata: {
+      title: "CRM Voice Recording Notes for Hotels | Eazotel Hotel CRM",
+      description:
+        "Discover how CRM voice recording notes help hotels capture guest conversations, streamline follow-ups, improve team coordination, and manage enquiries with Eazotel.",
+    },
+    src: "/blogs/crmvoicerecordingnoteshotel.png",
+    content: `
+    <p>Eazotel | Internal developer reference</p>
+
+    <p>Page 1</p>
+
+    <h1><strong>Eazotel CRM | Voice Recording Notes</strong></h1>
+
+    <p>Developer reference and functional requirements | 20 October 2026</p>
+
+    <p>Purpose: Enable hotel reservation and sales teams to capture, play back, and retain voice notes alongside guest enquiries, with optional written context. This document is a product handoff based on the supplied UI screenshot, not a claim that every proposed behavior already exists.</p>
+
+    <h2><strong>1. UI reference</strong></h2>
+
+    <p>Screenshot shows a Notes area, add (+) control, a six-second Phone Call audio item, play/progress control, date/time, edit/delete affordances, written details field, microphone control, and Save button.</p>
+
+    <img src="/blogs/crm-voice-recording-notes.jpg" alt="UI reference" />
+
+    <h2><strong>2. Problem and use case</strong></h2>
+
+    <p>Hotel teams handle many guest conversations each day. Important details such as stay dates, room preferences, special occasions, price discussions and callback commitments can be lost between shifts. Voice notes help staff quickly preserve a summary of the conversation inside the guest or lead record.</p>
+
+    <h2><strong>3. Minimum viable feature requirements (proposed)</strong></h2>
+
+    <p>Recording: Start and stop a short audio note from the lead/guest record; show recording duration and a clear recording state.</p>
+
+    <p>Playback: Play/pause a saved recording and show duration/progress; do not auto-play.</p>
+
+    <p>Text notes: Allow an optional text description to accompany an audio recording.</p>
+
+    <p>Save and persistence: Save the recording and description against the correct CRM lead/guest identifier. Prevent empty or failed uploads from appearing as saved.</p>
+
+    <p>Eazotel | Internal developer reference</p>
+
+    <p>Page 2</p>
+
+    <p>List of notes: Display note type, creation timestamp, creator, duration, and available actions.</p>
+
+    <p>Edit and delete: Edit accompanying text; define whether replacing audio is supported. Require confirmation before deletion.</p>
+
+    <p>Access controls: Only authorized staff should view, create, edit or delete notes, based on CRM role and property permissions.</p>
+
+    <p>Mobile experience: Support microphone permission prompts, responsive controls, and a clear error state if permission is denied.</p>
+
+    <h2><strong>4. Suggested user journey</strong></h2>
+
+    <p>1. Open a guest enquiry or lead in the hotel CRM.</p>
+
+    <p>2. Select Notes and tap + or the microphone icon.</p>
+
+    <p>3. Grant microphone access if prompted, then record the guest conversation summary.</p>
+
+    <p>4. Stop recording; preview the audio and add optional written details.</p>
+
+    <p>5. Tap Save; wait for upload confirmation and show the note in the timeline.</p>
+
+    <p>6. Other authorized team members can play the note before a callback or shift handover.</p>
+
+    <h2><strong>5. Suggested data model</strong></h2>
+
+    <table>
+      <thead><tr><th>Field</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>note_id</td><td>Unique note identifier</td></tr>
+        <tr><td>property_id / lead_id</td><td>Hotel and associated CRM record</td></tr>
+        <tr><td>created_by / created_at</td><td>Staff user and server-side timestamp</td></tr>
+        <tr><td>audio_file_key</td><td>Private storage reference (not a public URL)</td></tr>
+        <tr><td>duration_seconds / mime_type</td><td>Audio metadata</td></tr>
+        <tr><td>text_note</td><td>Optional written summary</td></tr>
+        <tr><td>status</td><td>Uploading, saved, failed, deleted</td></tr>
+        <tr><td>updated_at / deleted_at</td><td>Audit and lifecycle metadata</td></tr>
+      </tbody>
+    </table>
+
+    <h2><strong>6. API and engineering considerations</strong></h2>
+
+    <p>Suggested endpoints: POST /crm/leads/{id}/voice-notes (upload); GET /crm/leads/{id}/voice-notes (list); GET /crm/voice-notes/{id}/playback (authorized streaming or short-lived signed URL); PATCH /crm/voice-notes/{id} (text update); DELETE /crm/voice-notes/{id} (authorized deletion). Exact endpoint names should follow existing Eazotel API conventions.</p>
+
+    <p>Validate file size, duration and MIME type on the server; restrict to supported audio formats; protect files in private storage; use HTTPS, encryption at rest, authorization checks, and audit logs. Handle network interruption, duplicate submissions, upload retries, and playback failure.</p>
+
+    <h2><strong>7. Privacy, consent and retention</strong></h2>
+
+    <p>Eazotel | Internal developer reference</p>
+
+    <p>Page 3</p>
+
+    <p>Distinguish staff-dictated CRM notes from recording an actual phone conversation. If recording calls or identifiable guest speech, implement legally appropriate notice/consent workflows. Establish retention and deletion policies, restrict access by property, and avoid placing sensitive guest data in recordings unnecessarily.</p>
+
+    <h2><strong>8. Acceptance criteria for QA</strong></h2>
+
+    <ul>
+      <li>A permitted user can record, preview and save a note on the intended lead.</li>
+      <li>Saved audio and accompanying text remain accessible after refresh and on another authorized device.</li>
+      <li>A user without access to the lead cannot retrieve the recording URL or audio bytes.</li>
+      <li>Microphone denial, failed upload and lost connectivity display actionable error messages.</li>
+      <li>Deleting a note removes it from the active timeline and follows the configured retention policy.</li>
+      <li>Timestamps and creator information are accurate; mobile playback and recording work reliably.</li>
+    </ul>
+
+    <h2><strong>9. Future enhancements (not confirmed in screenshot)</strong></h2>
+
+    <p>Optional speech-to-text transcription, AI-generated summaries, extraction of callback tasks, language support, searchable transcripts, CRM activity insights, and integration with telephony systems. These require separate product scoping and privacy review.</p>
+
+    <h2><strong>10. Content / marketing positioning</strong></h2>
+
+    <p>Blog title: CRM Voice Recording Notes: How Hotels Can Turn Every Guest Conversation into Better Service and More Bookings</p>
+
+    <p>SEO title: CRM Voice Recording Notes for Hotels | Eazotel Hotel CRM</p>
+
+    <p>Meta description: Discover how CRM voice recording notes help hotels capture guest conversations, streamline follow-ups, improve team coordination, and manage enquiries with Eazotel.</p>
+
+    <p>Suggested URL: /blog/crm-voice-recording-notes-hotel-crm/</p>
+
+    <p>Messaging note: Describe capabilities shown in the screenshot as UI observations; describe additional capabilities as planned or proposed until development confirms they are live.</p>
+    `,
   },
 ];

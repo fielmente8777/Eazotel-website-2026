@@ -26,7 +26,7 @@ const FeaturesSlider: React.FC<{ cards: FeaturesProps["cards"] }> = ({
           rotate: 0, 
           stretch: -10, 
           depth: 100, 
-          modifier: 1, 
+          modifier: 1, // 🔥 THIS makes center BIG
           slideShadows: false,
         }}
         breakpoints={{
@@ -46,7 +46,7 @@ const FeaturesSlider: React.FC<{ cards: FeaturesProps["cards"] }> = ({
                 src={card.image}
                 alt={card.title}
                 fill
-                className={card.containImage ? "object-contain bg-[#191921]" : "object-cover"}
+                className="object-cover"
               />
             </div>
             <div className="space-y-2 px-6">
