@@ -14,7 +14,12 @@ export const navLinks: NavLinksProps[] = [
     href: "#how-it-works",
   },
   {
-  label: "Our Services",
-  href: "https://www.fielmente.com",
-},
+    label: "Our Services",
+    href: "https://www.fielmente.com",
+  },
+
+  {
+    label: "Blogs",
+    href: "/blogs",
+  },
 ];

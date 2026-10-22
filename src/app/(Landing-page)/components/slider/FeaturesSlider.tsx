@@ -23,10 +23,10 @@ const FeaturesSlider: React.FC<{ cards: FeaturesProps["cards"] }> = ({
           disableOnInteraction: false,
         }}
         coverflowEffect={{
-          rotate: 0, // no tilt (clean look like your design)
-          stretch: -10, // keep spacing natural
-          depth: 100, // pushes side slides back
-          modifier: 1, // 🔥 THIS makes center BIG
+          rotate: 0, 
+          stretch: -10, 
+          depth: 100, 
+          modifier: 1, 
           slideShadows: false,
         }}
         breakpoints={{
@@ -46,7 +46,7 @@ const FeaturesSlider: React.FC<{ cards: FeaturesProps["cards"] }> = ({
                 src={card.image}
                 alt={card.title}
                 fill
-                className="object-cover"
+                className={card.containImage ? "object-contain bg-[#191921]" : "object-cover"}
               />
             </div>
             <div className="space-y-2 px-6">

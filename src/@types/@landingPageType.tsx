@@ -27,6 +27,7 @@ export interface FeaturesProps {
     title: string;
     description: string;
     image: string;
+    containImage?: boolean;
   }[];
 }
 
