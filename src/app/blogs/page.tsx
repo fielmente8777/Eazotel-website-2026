@@ -14,7 +14,7 @@ export default function Blogs() {
       </SectionWithContainer>
       {/* cards */}
       <section className="pb-16">
-        <Container className="max-w-5xl! w-full md:grid-cols-2 grid-cols-1 grid lg:gap-x-9 lg:gap-y-8 gap-6">
+        <Container className=" w-full lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid lg:gap-x-9 lg:gap-y-8 gap-6">
           {blogsData.map((item, index) => (
             <Link
               href={`/blogs/${item.slug}`}
