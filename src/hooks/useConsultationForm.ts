@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDebounce } from "./useDebounce";
 import axios from "axios";
 import { contacts } from "../../contact";
+import { markLeadSubmitted } from "@/lib/leadPrompt";
 
 export interface ConsultationFormData {
   name: string;
@@ -48,10 +49,13 @@ const useConsultationForm = ({
   const validateEmail = (email: string): boolean =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const validatePhone = (phone: string): boolean => {
-    const re = /^[0-9]{10,15}$/;
-    return re.test(phone);
-  };
+  // +91 needs a 10-digit mobile; other country codes accept 7 to 15 digits.
+  const phoneRule = (code: string) =>
+    code === "+91"
+      ? { re: /^[0-9]{10}$/, message: "Enter a 10-digit mobile number" }
+      : { re: /^[0-9]{7,15}$/, message: "Phone must be 7-15 digits" };
+  const validatePhone = (phone: string, code: string = formData.countryCode): boolean =>
+    phoneRule(code).re.test(phone);
 
   // Debounced Email Validation
   useEffect(() => {
@@ -73,7 +77,7 @@ const useConsultationForm = ({
     if (debouncedPhone && !validatePhone(debouncedPhone)) {
       setErrors((prev) => ({
         ...prev,
-        phone: "Phone must be 10-15 digits",
+        phone: phoneRule(formData.countryCode).message,
       }));
     } else if (debouncedPhone && validatePhone(debouncedPhone)) {
       setErrors((prev) => ({
@@ -81,7 +85,8 @@ const useConsultationForm = ({
         phone: undefined,
       }));
     }
-  }, [debouncedPhone]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedPhone, formData.countryCode]);
 
   // Debounced Name Validation
   useEffect(() => {
@@ -108,7 +113,7 @@ const useConsultationForm = ({
     }
 
     if (!validatePhone(formData.phone)) {
-      newErrors.phone = "Phone must be 10-15 digits";
+      newErrors.phone = phoneRule(formData.countryCode).message;
       isValid = false;
     }
 
@@ -202,16 +207,19 @@ const useConsultationForm = ({
       );
 
       if (data.Status) {
+        const name = formData.name.trim();
         setSubmitSuccess(true);
         resetForm();
+        markLeadSubmitted();
+        // GTM conversion, fired only after the CRM confirms the lead.
+        const w = window as typeof window & { dataLayer?: unknown[] };
+        w.dataLayer = w.dataLayer || [];
+        w.dataLayer.push({ event: "generate_lead", form_page: window.location.pathname, form_name: "consultation" });
         if (onSubmitSuccess) {
           onSubmitSuccess();
         }
-
-        setTimeout(() => {
-          setSubmitSuccess(false);
-        }, 3000);
-        window.open("/thank-you/", "_blank");
+        // Same tab: a new tab opened after the request is usually blocked.
+        window.location.assign(`/thank-you/?name=${encodeURIComponent(name)}`);
       } else {
         alert(data.message || "Something went wrong. Please try again.");
       }

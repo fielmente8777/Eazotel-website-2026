@@ -17,7 +17,8 @@ interface FormField {
   ) => void;
 }
 
-const Form1 = () => {
+/** stacked: one field per row, for narrow places like the consultation popup. */
+const Form1 = ({ stacked = false }: { stacked?: boolean }) => {
   const {
     formData,
     isSubmitting,
@@ -85,14 +86,16 @@ const Form1 = () => {
         Let&apos;s work on boosting your hotel&apos;s profitability!
       </p>
 
-      <div className="grid xl:grid-cols-2 gap-4">
+      <div className={stacked ? "grid gap-4" : "grid xl:grid-cols-2 gap-4"}>
         {formFields.map((field, index) => (
           <div
             key={index}
             className={`flex flex-col xl:gap-2 gap-3 ${
-              field.tag === "textarea" || field.type === "email"
-                ? "xl:col-span-2"
-                : "xl:col-span-1"
+              stacked
+                ? ""
+                : field.tag === "textarea" || field.type === "email"
+                  ? "xl:col-span-2"
+                  : "xl:col-span-1"
             }`}
           >
             <label className="text-white max-md:text-sm">{field.label}</label>

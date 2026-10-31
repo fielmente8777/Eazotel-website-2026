@@ -1,90 +1,55 @@
 "use client";
+
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useEffect, useState, useCallback, useRef, useContext } from "react";
-import { AppContext } from "@/contextApi/AppContext";
+import { useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { MdClose } from "react-icons/md";
+import { useAppContext } from "@/contextApi/AppContext";
+import useLeadPrompt from "@/hooks/useLeadPrompt";
+import { isLeadThankYouPage } from "@/lib/leadPrompt";
+import LeadDialog from "./LeadDialog";
 
-const PopupForm = () => {
-  const { isOpenPopupForm, setIsOpenPopupForm } = useContext(AppContext);
-  const pathName = usePathname();
-  const [hasShown, setHasShown] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+const Form1 = dynamic(() => import("@/components/forms/Form1"));
 
-  useEffect(() => {
-    if (isOpenPopupForm) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpenPopupForm]);
+const POINTS = [
+  "Every WhatsApp, Meta, Google and website enquiry in one inbox",
+  "AI replies to guests in seconds, 24/7",
+  "14-day free trial. Works with your existing channels",
+];
 
-  useEffect(() => {
-    // Only show if not already shown and modal isn't open
-    if (!hasShown && !isOpenPopupForm) {
-      timerRef.current = setTimeout(() => {
-        setIsOpenPopupForm(true);
-        setHasShown(true);
-        document.body.style.overflow = "hidden";
-      }, 40000); // Show after 40 seconds
-    }
-
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [isOpenPopupForm, hasShown, setIsOpenPopupForm]);
-
-  const closeModal = useCallback(() => {
-    setIsOpenPopupForm(false);
-    document.body.style.overflow = "auto";
-
-    // Clear any pending timer when modal is closed
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-    }
-  }, [setIsOpenPopupForm]);
-
-  if (pathName === "/thank-you/") {
-    return null;
-  }
+/**
+ * The free-consultation popup. It opens after one minute of visible browsing or on
+ * desktop exit intent (once per session), and whenever a "button" CtaBtn sets
+ * isOpenPopupForm in AppContext.
+ */
+export default function PopupForm() {
+  const { isOpenPopupForm, setIsOpenPopupForm } = useAppContext();
+  const pathname = usePathname();
+  const open = useCallback(() => setIsOpenPopupForm(true), [setIsOpenPopupForm]);
+  const close = useCallback(() => setIsOpenPopupForm(false), [setIsOpenPopupForm]);
+  useLeadPrompt(open);
 
   return (
-    <>
-      <section
-        className={`fixed inset-0 z-99999 bg-black/50 duration-700 ease-in-out transition-all ${isOpenPopupForm ? "visible opacity-100 scale-100" : "invisible opacity-0 scale-95"}`}
-        onClick={closeModal}
-      >
-        <article
-          className={`flex justify-center items-center h-full max-md:px-4`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex max-w-3xl w-full shadow-2xl relative rounded-lg overflow-hidden bg-white">
-            <button
-              onClick={closeModal}
-              className="absolute top-1 right-1 w-8 h-8 flex justify-center items-center text-lg rounded-full text-secondary bg-white z-10 transition-all duration-300"
-              aria-label="Close popup"
-            >
-              <MdClose />
-            </button>
-            <div className="relative w-full md:aspect-4/4 max-md:hidden">
-              <Image
-                src={"/popup2.jpg"}
-                alt="Hospitality Marketing"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+    <LeadDialog open={isOpenPopupForm && !isLeadThankYouPage(pathname)} onClose={close}>
+      <div className="grid md:grid-cols-[0.9fr_1.1fr]">
+        <div className="hidden md:flex flex-col justify-between gap-8 p-8 bg-[#093A75] text-white">
+          <div className="relative w-36 aspect-[4/.75]">
+            <Image src="/logo.png" alt="Eazotel" fill sizes="144px" className="object-contain object-left" />
           </div>
-        </article>
-      </section>
-    </>
+          <div className="space-y-5">
+            <p className="text-2xl font-semibold leading-snug">See how many more bookings your hotel can take direct.</p>
+            <ul className="space-y-3 text-white/85 text-sm">
+              {POINTS.map((point) => (
+                <li key={point} className="flex gap-3">
+                  <span aria-hidden="true" className="mt-1.5 h-2 w-2 flex-none rounded-full bg-[#FD5C01]" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <Form1 stacked />
+      </div>
+    </LeadDialog>
   );
-};
-
-export default PopupForm;
+}

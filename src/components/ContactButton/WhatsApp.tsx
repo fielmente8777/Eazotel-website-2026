@@ -1,65 +1,46 @@
 "use client";
 
-import Link from "next/link";
-import React from "react";
-import { FaWhatsapp } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import { contacts } from "../../../contact";
 
-function Whatsapp() {
+const WHATSAPP_TEXT =
+  "Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Eazotel%20AI%20Hospitality%20Marketing%20Solutions";
+
+/** Call and WhatsApp stacked at the bottom left; Zoho SalesIQ sits at the bottom right. */
+export default function Whatsapp() {
   const pathname = usePathname();
+  if (pathname === "/thank-you/") return null;
 
-  const ukNo = "+447438375533";
-  // const indNo = contacts.phone[1];
-  const indNo =
-    contacts.phone.length > 1 ? contacts.phone[1] : contacts.phone[0];
-
-  // Pages where button should be on right side
-  const rightSidePaths = [
-    // "/UK/",
-    // "/USA/",
-    // "/dubai-restaurant/",
-    // "/landing-page/",
-    "/test/",
-  ];
-
-  // Hide button on thank you page
-  if (pathname === "/thank-you/") {
-    return null;
-  }
-
-  // Check if current path starts with any right-side path
-  const isRightSide = rightSidePaths.some((path) => pathname.startsWith(path));
-
-  // Decide number based on path
-  const selectedNumber = pathname.startsWith("/UK/") ? ukNo : indNo;
-
-  const formattedNumber = selectedNumber.replace(/\s+/g, "");
-
-  const whatsappUrl = `https://wa.me/${formattedNumber}?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Eazotel%20AI%20Hospitality%20Marketing%20Solutions`;
+  const number = contacts.phone[0].replace(/\s+/g, "");
 
   return (
     <div
-      className={`fixed z-20 cursor-pointer ${
-        isRightSide
-          ? "lg:right-10 right-4 bottom-10"
-          : "lg:left-10 left-4 bottom-10"
-      }`}
+      role="group"
+      aria-label="Contact Eazotel"
+      className="fixed left-4 lg:left-10 z-20 flex flex-col items-start gap-3"
+      style={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
     >
-      <Link
-        href={whatsappUrl}
+      <a
+        id="call-button"
+        href={`tel:${number}`}
+        aria-label="Call Eazotel"
+        title="Call Eazotel"
+        className="call-button flex h-12 w-12 flex-none items-center justify-center rounded-full bg-[#093A75] text-white shadow-2xl transition-colors hover:bg-[#1B2231] focus-visible:ring-2 focus-visible:ring-[#FD5C01] focus-visible:ring-offset-2"
+      >
+        <FaPhoneAlt size={22} aria-hidden="true" />
+      </a>
+      <a
+        id="whatsapp-button"
+        href={`https://wa.me/${number}?text=${WHATSAPP_TEXT}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="w-12 h-12 rounded-full flex shadow-2xl items-center justify-center bg-green-500 hover:bg-green-600 transition-all hover:shadow-2xl"
+        title="Chat on WhatsApp"
+        className="whatsapp-button flex h-12 w-12 flex-none items-center justify-center rounded-full bg-green-500 text-white shadow-2xl transition-colors hover:bg-green-600 focus-visible:ring-2 focus-visible:ring-[#FD5C01] focus-visible:ring-offset-2"
       >
-        <FaWhatsapp size={29} color="white" />
-
-        {/* 👇 Hidden text for GTM & accessibility */}
-        <span className="sr-only">Chat on WhatsApp</span>
-      </Link>
+        <FaWhatsapp size={29} aria-hidden="true" />
+      </a>
     </div>
   );
 }
-
-export default Whatsapp;

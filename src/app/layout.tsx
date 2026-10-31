@@ -1,4 +1,5 @@
 import Whatsapp from "@/components/ContactButton/WhatsApp";
+import PopupForm from "@/components/pop-ups/PopupForm";
 import Footer from "@/components/footers/Footer";
 import { NavBar } from "@/components/navbars";
 import { AppProvider } from "@/contextApi/AppContext";
@@ -92,7 +93,10 @@ export default function RootLayout({
             $zoho.salesiq = $zoho.salesiq || {
               widgetcode: "siq3e552165893c13042e1d199f6774a60161bf7e2d236cee20afeec12690605bbe60e273bf1bbc69d76802e696c96db5df",
               values: {},
-              ready: function(){}
+              ready: function(){
+                // Call and WhatsApp sit at the bottom left, so chat goes bottom right.
+                if ($zoho.salesiq.floatbutton) $zoho.salesiq.floatbutton.position("bottomright");
+              }
             };
             var d = document;
             var s = d.createElement("script");
@@ -185,6 +189,7 @@ export default function RootLayout({
             {children}
             <Footer />
             <Whatsapp />
+            <PopupForm />
           </AppProvider>
         </StoreProvider>
       </body>
