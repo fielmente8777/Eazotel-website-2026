@@ -1752,7 +1752,7 @@ export const blogsData = [
       description:
         "A hotel website should help a guest decide whether to stay and make the next step easy. Attractive photographs matter, but the website also needs to explain rooms, packages, location and booking conditions clearly.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-website-builder-create-a-website-that-supports-direct-bookings.webp",
     content: `
     <h1><strong>Hotel Website Builder: Create a Website That Supports Direct Bookings</strong></h1>
 
@@ -1841,7 +1841,7 @@ export const blogsData = [
       description:
         "A website-software demonstration often starts with a beautiful homepage. A hotel’s buying decision should also cover the ordinary work of changing offers, updating room information and resolving booking problems.",
     },
-    src: "",
+    src: "/blogs/covers/how-to-choose-hotel-website-software-a-buyers-checklist.webp",
     content: `
     <h1><strong>How to Choose Hotel Website Software: A Buyer’s Checklist</strong></h1>
 
@@ -1903,77 +1903,6 @@ export const blogsData = [
   `,
   },
 
-  {
-    slug: "how-to-choose-hotel-website-software-a-buyers-checklist",
-    title: "How to Choose Hotel Website Software: A Buyer’s Checklist",
-    description:
-      "A website-software demonstration often starts with a beautiful homepage. A hotel’s buying decision should also cover the ordinary work of changing offers, updating room information and resolving booking problems.",
-    metadata: {
-      title: "How to Choose Hotel Website Software: A Buyer’s Checklist",
-      description:
-        "A website-software demonstration often starts with a beautiful homepage. A hotel’s buying decision should also cover the ordinary work of changing offers, updating room information and resolving booking problems.",
-    },
-    src: "",
-    content: `
-    <h1><strong>How to Choose Hotel Website Software: A Buyer’s Checklist</strong></h1>
-
-    <p>A website-software demonstration often starts with a beautiful homepage. A hotel’s buying decision should also cover the ordinary work of changing offers, updating room information and resolving booking problems.</p>
-
-    <h2><strong>Test the editor with real hotel content</strong></h2>
-
-    <p>Ask a staff member to update a room inclusion, change an offer date and replace an image. Check whether the change appears everywhere the content is reused. Test the preview before publishing.</p>
-
-    <p>Identify who approves prices, policies and promotional claims. Editing freedom should fit the hotel’s responsibilities rather than allow every employee to change commercial terms.</p>
-
-    <h2><strong>Examine booking and enquiry connections</strong></h2>
-
-    <p>Demonstrate room selection, unavailable dates and a package enquiry. Check where the booking engine opens, which context survives and who receives the form submission.</p>
-
-    <p>An illustrative wedding-page test might submit event dates and guest count. The sales team should receive those details with the page reference, not merely an email address and the word “lead.”</p>
-
-    <h2><strong>Check ownership and portability</strong></h2>
-
-    <p>Confirm domain ownership, hosting responsibilities, content exports and access to analytics. Ask how the hotel moves its website or retrieves content if the agreement ends.</p>
-
-    <p>Evaluate redirects, page titles, descriptions and image text controls. Technical capabilities need clear ownership; a feature that nobody knows how to use will not maintain itself.</p>
-
-    <h2><strong>Compare total cost and support</strong></h2>
-
-    <p>Include implementation, ongoing subscription, booking-related fees, integrations and regular maintenance. Ask how urgent errors are handled and which changes require paid work.</p>
-
-    <p>Keep a written scorecard with observed evidence from the demonstration. The best fit is software your team can maintain and your guests can use, with costs and responsibilities the owner understands.</p>
-
-    <h2><strong>A practical check for your hotel</strong></h2>
-
-    <p>Ask a non-technical employee to edit an offer, preview it, publish an approved change and retrieve the content for export.</p>
-
-    <p>The task should reveal actual editor usability, approval boundaries and portability rather than relying on a vendor demonstration.</p>
-
-    <p><strong>Measure the result:</strong> Record time, errors and steps that still require external support.</p>
-
-    <h2><strong>Questions hotel teams ask</strong></h2>
-
-    <h3><strong>Should we choose the lowest-priced builder?</strong></h3>
-
-    <p>Compare total operating cost and the demonstrated workflow. A cheaper subscription may leave essential integrations or maintenance outside the quoted price.</p>
-
-    <h3><strong>What should we ask to see before signing?</strong></h3>
-
-    <p>A real room update, package enquiry, mobile booking, failed checkout and content export are useful demonstration tasks.</p>
-
-    <h2><strong>Put the workflow into practice</strong></h2>
-
-    <p>Explore <a href="https://eazotel.com/">Eazotel</a> as your AI Hospitality Platform. Bring your property's current workflow to a consultation and ask the team to demonstrate the relevant capabilities, connections and handovers for your hotel.</p>
-
-    <h2><strong>Related guides</strong></h2>
-
-    <ul>
-      <li>Hotel Website Builder: Create a Website That Supports Direct Bookings</li>
-      <li>Mobile Hotel Website Design: Remove Friction Before Guests Enquire</li>
-      <li>Hotel Campaign Landing Pages: Match the Advertisement to the Enquiry</li>
-    </ul>
-  `,
-  },
 
   {
     slug: "hotel-room-pages-that-help-guests-choose-the-right-stay",
@@ -1985,7 +1914,7 @@ export const blogsData = [
       description:
         "“Luxurious comfort” does not answer whether a room accommodates two adults and two children. A room page must combine the experience with the facts needed to choose safely.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-room-pages-that-help-guests-choose-the-right-stay.webp",
     content: `
     <h1><strong>Hotel Room Pages That Help Guests Choose the Right Stay</strong></h1>
 
@@ -2059,7 +1988,7 @@ export const blogsData = [
       description:
         "A resort advertisement promotes a wellness stay, but its link opens a generic homepage. The guest now has to search for the offer that prompted the click. A focused landing page can preserve that intent.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-campaign-landing-pages-match-the-advertisement-to-the-enquiry.webp",
     content: `
     <h1><strong>Hotel Campaign Landing Pages: Match the Advertisement to the Enquiry</strong></h1>
 
@@ -2133,7 +2062,7 @@ export const blogsData = [
       description:
         "A visitor chooses a package and clicks Book Now. If the booking engine forgets the selection, the guest must start again. Integration should preserve the journey, not merely connect two URLs.",
     },
-    src: "",
+    src: "/blogs/covers/connect-your-hotel-website-and-booking-engine-without-losing-context.webp",
     content: `
     <h1><strong>Connect Your Hotel Website and Booking Engine Without Losing Context</strong></h1>
 
@@ -2211,7 +2140,7 @@ export const blogsData = [
       description:
         "Outdated information often survives because nobody owns the update. Marketing may edit an offer while the same package remains unchanged on a room page or in an automated reply.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-cms-workflows-keep-rooms-offers-and-menus-current.webp",
     content: `
     <h1><strong>Hotel CMS Workflows: Keep Rooms, Offers and Menus Current</strong></h1>
 
@@ -2283,7 +2212,7 @@ export const blogsData = [
       description:
         "International guests need more than a translated welcome message. They need to understand room choices, meal inclusions, dates, payment and cancellation conditions well enough to make a booking.",
     },
-    src: "",
+    src: "/blogs/covers/multilingual-hotel-websites-localise-the-booking-decision.webp",
     content: `
     <h1><strong>Multilingual Hotel Websites: Localise the Booking Decision</strong></h1>
 
@@ -2361,7 +2290,7 @@ export const blogsData = [
       description:
         "A hotel’s website conversion rate is an outcome of several different steps. A visitor might not find a suitable room, discover unavailable dates or encounter a payment error. An audit should identify the actual interruption.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-website-conversion-audit-find-why-visitors-do-not-book.webp",
     content: `
     <h1><strong>Hotel Website Conversion Audit: Find Why Visitors Do Not Book</strong></h1>
 
@@ -2432,7 +2361,7 @@ export const blogsData = [
       description:
         "A hotel chatbot should help a guest progress toward a suitable stay. Answering “we have beautiful rooms” does little for someone who needs to know whether a family can share one room on specific dates.",
     },
-    src: "",
+    src: "/blogs/covers/ai-chatbot-for-hotels-from-routine-answers-to-useful-enquiries.webp",
     content: `
     <h1><strong>AI Chatbot for Hotels: From Routine Answers to Useful Enquiries</strong></h1>
 
@@ -2515,7 +2444,7 @@ export const blogsData = [
       description:
         "A chatbot’s reliability depends on the information behind it. A polished answer based on an expired package is still wrong. Knowledge preparation should be treated as hotel content management.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-chatbot-knowledge-bases-turn-property-facts-into-reliable-answers.webp",
     content: `
     <h1><strong>Hotel Chatbot Knowledge Bases: Turn Property Facts into Reliable Answers</strong></h1>
 
@@ -2586,7 +2515,7 @@ export const blogsData = [
       description:
         "A chatbot handover fails when it merely displays “contact reception.” The guest has already explained the request. The hotel should carry that information into an owned human conversation.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-chatbot-human-handover-keep-the-conversation-moving.webp",
     content: `
     <h1><strong>Hotel Chatbot Human Handover: Keep the Conversation Moving</strong></h1>
 
@@ -2659,7 +2588,7 @@ export const blogsData = [
       description:
         "A fluent chatbot can still misunderstand a guest’s stay dates or meal plan. Multilingual hotel service needs accurate meaning as well as natural language.",
     },
-    src: "",
+    src: "/blogs/covers/multilingual-hotel-chatbots-test-the-details-that-affect-a-booking.webp",
     content: `
     <h1><strong>Multilingual Hotel Chatbots: Test the Details That Affect a Booking</strong></h1>
 
@@ -2732,7 +2661,7 @@ export const blogsData = [
       description:
         "Hotel packages often combine rooms, meals and experiences. A guest needs to understand what is included, what is optional and whether the package fits the planned trip.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-chatbots-for-packages-explain-inclusions-before-recommending-a-stay.webp",
     content: `
     <h1><strong>Hotel Chatbots for Packages: Explain Inclusions Before Recommending a Stay</strong></h1>
 
@@ -2805,7 +2734,7 @@ export const blogsData = [
       description:
         "A chat record containing only a name and telephone number leaves reservations guessing why the guest made contact. Useful lead capture preserves the request that created the opportunity.",
     },
-    src: "",
+    src: "/blogs/covers/chatbot-lead-capture-for-hotels-collect-context-not-just-contact-details.webp",
     content: `
     <h1><strong>Chatbot Lead Capture for Hotels: Collect Context, Not Just Contact Details</strong></h1>
 
@@ -2878,7 +2807,7 @@ export const blogsData = [
       description:
         "A guest asking for a late checkout needs more than an automated acknowledgement. Someone must check availability, approve any charge and confirm the result. An AI concierge should support that operational chain.",
     },
-    src: "",
+    src: "/blogs/covers/ai-hotel-concierge-turn-guest-questions-into-owned-service-requests.webp",
     content: `
     <h1><strong>AI Hotel Concierge: Turn Guest Questions into Owned Service Requests</strong></h1>
 
@@ -2950,7 +2879,7 @@ export const blogsData = [
       description:
         "A chatbot demonstration usually uses straightforward questions. Hotel guests ask incomplete, unusual and contradictory questions too. Testing should reflect those conversations.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-chatbot-testing-check-accuracy-before-you-expand-automation.webp",
     content: `
     <h1><strong>Hotel Chatbot Testing: Check Accuracy Before You Expand Automation</strong></h1>
 
@@ -3023,7 +2952,7 @@ export const blogsData = [
       description:
         "Live chat and a chatbot solve related problems in different ways. A person can use judgment in a complex request; automation can handle approved routine questions when staff are occupied. Hotels often need a deliberate combination.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-chatbot-vs-live-chat-choose-the-right-blend-of-automation-and-staff.webp",
     content: `
     <h1><strong>Hotel Chatbot vs Live Chat: Choose the Right Blend of Automation and Staff</strong></h1>
 
@@ -3096,7 +3025,7 @@ export const blogsData = [
       description:
         "A guest checks a package on the website and then asks the same question on WhatsApp. If the two channels describe different inclusions, the hotel creates uncertainty at the point of purchase.",
     },
-    src: "",
+    src: "/blogs/covers/one-hotel-ai-assistant-across-website-and-whatsapp-keep-answers-consistent.webp",
     content: `
     <h1><strong>One Hotel AI Assistant Across Website and WhatsApp: Keep Answers Consistent</strong></h1>
 
@@ -3168,7 +3097,7 @@ export const blogsData = [
       description:
         "A hotel telephone enquiry can arrive while staff are helping guests at reception. An AI call agent can support coverage, but answering the phone is only the beginning. The conversation needs to preserve the caller’s actual requirements.",
     },
-    src: "",
+    src: "/blogs/covers/ai-call-agent-for-hotels-design-a-useful-reservation-conversation.webp",
     content: `
     <h1><strong>AI Call Agent for Hotels: Design a Useful Reservation Conversation</strong></h1>
 
@@ -3257,7 +3186,7 @@ export const blogsData = [
       description:
         "A missed-call log records an interruption, not a completed enquiry. The hotel still needs to learn why the caller contacted it and whether the request remains active.",
     },
-    src: "",
+    src: "/blogs/covers/missed-hotel-calls-build-a-recovery-workflow-that-staff-can-complete.webp",
     content: `
     <h1><strong>Missed Hotel Calls: Build a Recovery Workflow That Staff Can Complete</strong></h1>
 
@@ -3330,7 +3259,7 @@ export const blogsData = [
       description:
         "Telephone qualification should feel like an employee helping the caller organise a stay. A rigid sequence becomes frustrating when it ignores information already stated or asks for details unrelated to the request.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-voice-lead-qualification-ask-the-questions-that-enable-a-quotation.webp",
     content: `
     <h1><strong>Hotel Voice Lead Qualification: Ask the Questions That Enable a Quotation</strong></h1>
 
@@ -3403,7 +3332,7 @@ export const blogsData = [
       description:
         "A guest asks the hotel to call after work. A well-designed callback preserves that request and continues the enquiry. It should not treat the request as permission for unlimited promotional calling.",
     },
-    src: "",
+    src: "/blogs/covers/ai-hotel-callbacks-follow-up-requested-enquiries-with-clear-permission.webp",
     content: `
     <h1><strong>AI Hotel Callbacks: Follow Up Requested Enquiries with Clear Permission</strong></h1>
 
@@ -3476,7 +3405,7 @@ export const blogsData = [
       description:
         "A call summary can save staff time, but an inaccurate summary can misdirect the next conversation. The CRM needs both useful structured information and a way to check what the caller actually said.",
     },
-    src: "",
+    src: "/blogs/covers/connect-hotel-call-summaries-to-crm-preserve-facts-and-next-actions.webp",
     content: `
     <h1><strong>Connect Hotel Call Summaries to CRM: Preserve Facts and Next Actions</strong></h1>
 
@@ -3550,7 +3479,7 @@ export const blogsData = [
       description:
         "Voice language support has to work with real callers. Background noise, accents and interruptions can affect recognition even when a demonstration sounds smooth.",
     },
-    src: "",
+    src: "/blogs/covers/multilingual-hotel-voice-agents-test-accents-dates-and-transfer-routes.webp",
     content: `
     <h1><strong>Multilingual Hotel Voice Agents: Test Accents, Dates and Transfer Routes</strong></h1>
 
@@ -3621,7 +3550,7 @@ export const blogsData = [
       description:
         "A short call may be efficient or it may be an abandoned conversation. A long call may involve a valuable group request or an agent repeatedly misunderstanding dates. Duration needs context.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-ai-call-quality-evaluate-helpfulness-beyond-call-duration.webp",
     content: `
     <h1><strong>Hotel AI Call Quality: Evaluate Helpfulness Beyond Call Duration</strong></h1>
 
@@ -3694,7 +3623,7 @@ export const blogsData = [
       description:
         "A reservation agent must distinguish between discussing a stay and creating a confirmed reservation. Guests rely on that distinction when planning travel and making payments.",
     },
-    src: "",
+    src: "/blogs/covers/ai-reservation-agents-for-hotels-define-the-boundary-between-enquiry-and-booking.webp",
     content: `
     <h1><strong>AI Reservation Agents for Hotels: Define the Boundary Between Enquiry and Booking</strong></h1>
 
@@ -3767,7 +3696,7 @@ export const blogsData = [
       description:
         "A campaign-generated call is an important event, but it does not automatically represent a booking. Hotels need to connect call reporting with the conversation and its confirmed outcome.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-call-tracking-connect-telephone-enquiries-to-marketing-decisions.webp",
     content: `
     <h1><strong>Hotel Call Tracking: Connect Telephone Enquiries to Marketing Decisions</strong></h1>
 
@@ -3838,7 +3767,7 @@ export const blogsData = [
       description:
         "A voice-agent subscription is only one part of the cost. Call minutes, telephony, setup, integrations and staff review can affect the final budget substantially.",
     },
-    src: "",
+    src: "/blogs/covers/ai-call-agent-costs-for-hotels-model-usage-and-staff-workload.webp",
     content: `
     <h1><strong>AI Call Agent Costs for Hotels: Model Usage and Staff Workload</strong></h1>
 
@@ -3911,7 +3840,7 @@ export const blogsData = [
       description:
         "A hotel can receive many Meta form submissions while its reservations team struggles to sell rooms. Lead generation becomes useful when the advertisement, qualification and follow-up describe the same stay.",
     },
-    src: "",
+    src: "/blogs/covers/meta-lead-generation-for-hotels-build-a-path-from-interest-to-booking.webp",
     content: `
     <h1><strong>Meta Lead Generation for Hotels: Build a Path from Interest to Booking</strong></h1>
 
@@ -4000,7 +3929,7 @@ export const blogsData = [
       description:
         "A good lead-form question changes what reservations does next. Asking for information simply because a field is available makes the form longer without improving the enquiry.",
     },
-    src: "",
+    src: "/blogs/covers/five-hotel-lead-form-questions-that-help-reservations-qualify-enquiries.webp",
     content: `
     <h1><strong>Five Hotel Lead-Form Questions That Help Reservations Qualify Enquiries</strong></h1>
 
@@ -4072,7 +4001,7 @@ export const blogsData = [
       description:
         "An instant form and a landing page can both create valuable hotel enquiries. They introduce different amounts of friction and information, so the comparison must extend beyond cost per submission.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-instant-forms-vs-landing-pages-compare-lead-quality-fairly.webp",
     content: `
     <h1><strong>Hotel Instant Forms vs Landing Pages: Compare Lead Quality Fairly</strong></h1>
 
@@ -4145,7 +4074,7 @@ export const blogsData = [
       description:
         "A click-to-WhatsApp advertisement starts a conversation, not a reservation. If the hotel’s opening message is unrelated to the advertised package, the guest may leave before reservations learns their requirements.",
     },
-    src: "",
+    src: "/blogs/covers/click-to-whatsapp-ads-for-hotels-prepare-the-conversation-before-launch.webp",
     content: `
     <h1><strong>Click-to-WhatsApp Ads for Hotels: Prepare the Conversation Before Launch</strong></h1>
 
@@ -4217,7 +4146,7 @@ export const blogsData = [
       description:
         "A carousel can show several aspects of a property, but repeating the same promise on every slide wastes the format. Give each slide a job in the guest’s decision.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-carousel-ads-give-each-slide-a-role-in-the-booking-decision.webp",
     content: `
     <h1><strong>Hotel Carousel Ads: Give Each Slide a Role in the Booking Decision</strong></h1>
 
@@ -4290,7 +4219,7 @@ export const blogsData = [
       description:
         "A wedding lead may represent a large opportunity, but a name and number do not reveal whether the event fits the resort. Qualification needs to reflect venue capacity, dates and the planning process.",
     },
-    src: "",
+    src: "/blogs/covers/meta-lead-generation-for-resort-weddings-qualify-the-event-not-just-the-contact.webp",
     content: `
     <h1><strong>Meta Lead Generation for Resort Weddings: Qualify the Event, Not Just the Contact</strong></h1>
 
@@ -4363,7 +4292,7 @@ export const blogsData = [
       description:
         "A wellness stay can require more planning than a leisure weekend. Guests may need to understand programme length, inclusions and the consultation process before they enquire meaningfully.",
     },
-    src: "",
+    src: "/blogs/covers/wellness-resort-lead-generation-explain-the-programme-before-asking-for-a-lead.webp",
     content: `
     <h1><strong>Wellness Resort Lead Generation: Explain the Programme Before Asking for a Lead</strong></h1>
 
@@ -4436,7 +4365,7 @@ export const blogsData = [
       description:
         "A room-page visitor and a confirmed guest do not need the same advertising message. Retargeting becomes more useful when it reflects the decision the person is actually considering.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-retargeting-continue-a-relevant-decision-without-overmessaging.webp",
     content: `
     <h1><strong>Hotel Retargeting: Continue a Relevant Decision Without Overmessaging</strong></h1>
 
@@ -4509,7 +4438,7 @@ export const blogsData = [
       description:
         "When the advertising platform sees only submitted forms, it cannot directly evaluate the hotel’s full sales process. The CRM needs consistent outcomes before those outcomes can support better campaign decisions.",
     },
-    src: "",
+    src: "/blogs/covers/connect-meta-leads-to-hotel-crm-outcomes-improve-the-feedback-loop.webp",
     content: `
     <h1><strong>Connect Meta Leads to Hotel CRM Outcomes: Improve the Feedback Loop</strong></h1>
 
@@ -4588,7 +4517,7 @@ export const blogsData = [
       description:
         "A low cost per lead can hide a high cost per booking. The difference appears when many submitted contacts are unreachable, unsuitable or never receive a useful quotation.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-cost-per-lead-vs-cost-per-booking-choose-the-right-performance-metric.webp",
     content: `
     <h1><strong>Hotel Cost per Lead vs Cost per Booking: Choose the Right Performance Metric</strong></h1>
 
@@ -4661,7 +4590,7 @@ export const blogsData = [
       description:
         "Google Ads insights can help a hotel notice changing demand or campaign performance. The next question is whether those changes matter to the hotel’s available rooms, sales process and confirmed bookings.",
     },
-    src: "",
+    src: "/blogs/covers/google-ads-insights-for-hotels-turn-campaign-data-into-better-decisions.webp",
     content: `
     <h1><strong>Google Ads Insights for Hotels: Turn Campaign Data into Better Decisions</strong></h1>
 
@@ -4750,7 +4679,7 @@ export const blogsData = [
       description:
         "A hotel keyword describes the targeting choice. A search term describes what a person actually searched before the advertisement appeared. Reviewing that difference can reveal demand the hotel can serve and traffic it cannot.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-google-ads-search-terms-identify-intent-before-changing-keywords.webp",
     content: `
     <h1><strong>Hotel Google Ads Search Terms: Identify Intent Before Changing Keywords</strong></h1>
 
@@ -4828,7 +4757,7 @@ export const blogsData = [
       description:
         "A budget increase followed by higher CPC can be concerning, but timing alone does not prove the budget change caused every difference. The campaign may have reached a different mix of searches or faced changed competition.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-ads-cpc-rose-after-a-budget-increase-what-to-check.webp",
     content: `
     <h1><strong>Hotel Ads CPC Rose After a Budget Increase: What to Check</strong></h1>
 
@@ -4901,7 +4830,7 @@ export const blogsData = [
       description:
         "A traveller searching the hotel’s name already knows the property. Someone searching for a resort in the destination may be discovering it for the first time. Combining both journeys can hide what advertising actually contributes.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-brand-vs-non-brand-google-ads-report-the-two-jobs-separately.webp",
     content: `
     <h1><strong>Hotel Brand vs Non-Brand Google Ads: Report the Two Jobs Separately</strong></h1>
 
@@ -4972,7 +4901,7 @@ export const blogsData = [
       description:
         "Choosing a campaign type should follow the hotel’s demand and measurement needs. More advertising inventory is not automatically better if the property cannot identify which enquiries become valuable bookings.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-search-ads-vs-performance-max-choose-by-data-and-purpose.webp",
     content: `
     <h1><strong>Hotel Search Ads vs Performance Max: Choose by Data and Purpose</strong></h1>
 
@@ -5051,7 +4980,7 @@ export const blogsData = [
       description:
         "A hotel enquiry may begin online and close through a call or WhatsApp conversation. Measurement is stronger when the confirmed outcome can be connected to the original advertising interaction through supported methods.",
     },
-    src: "",
+    src: "/blogs/covers/enhanced-conversions-for-hotel-leads-connect-enquiries-to-better-measurement.webp",
     content: `
     <h1><strong>Enhanced Conversions for Hotel Leads: Connect Enquiries to Better Measurement</strong></h1>
 
@@ -5130,7 +5059,7 @@ export const blogsData = [
       description:
         "A hotel’s most important sales decision often happens outside the website. Reservations may confirm dates by telephone and complete the booking later. Offline conversion tracking aims to connect that outcome with advertising.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-offline-conversion-tracking-record-what-happens-after-the-lead.webp",
     content: `
     <h1><strong>Hotel Offline Conversion Tracking: Record What Happens After the Lead</strong></h1>
 
@@ -5209,7 +5138,7 @@ export const blogsData = [
       description:
         "A report showing 40 call-related conversions does not necessarily mean 40 room bookings. The event definition determines what was measured and how owners should interpret it.",
     },
-    src: "",
+    src: "/blogs/covers/google-ads-call-conversions-for-hotels-report-clicks-calls-and-bookings-separately.webp",
     content: `
     <h1><strong>Google Ads Call Conversions for Hotels: Report Clicks, Calls and Bookings Separately</strong></h1>
 
@@ -5286,7 +5215,7 @@ export const blogsData = [
       description:
         "Hotel advertising return depends on what the value represents. A dashboard using estimated lead values cannot be interpreted in the same way as one using confirmed reservation revenue.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-google-ads-roas-use-confirmed-value-and-clear-assumptions.webp",
     content: `
     <h1><strong>Hotel Google Ads ROAS: Use Confirmed Value and Clear Assumptions</strong></h1>
 
@@ -5359,7 +5288,7 @@ export const blogsData = [
       description:
         "A hotel owner may ask an advertising advisor why conversions changed, then ask a hospitality consultant why bookings changed. Those questions overlap, but they require different evidence.",
     },
-    src: "",
+    src: "/blogs/covers/google-ads-ask-advisor-vs-hotel-ai-consultant-what-each-can-explain.webp",
     content: `
     <h1><strong>Google Ads Ask Advisor vs Hotel AI Consultant: What Each Can Explain</strong></h1>
 
@@ -5438,7 +5367,7 @@ export const blogsData = [
       description:
         "Direct booking gives a hotel a route to sell through its own website, but the guest still needs a clear and trustworthy purchase process. Confusing room choices or unclear payment states can interrupt that journey.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-direct-booking-engine-make-reservations-clear-from-selection-to-confirmation.webp",
     content: `
     <h1><strong>Hotel Direct Booking Engine: Make Reservations Clear from Selection to Confirmation</strong></h1>
 
@@ -5528,7 +5457,7 @@ export const blogsData = [
       description:
         "A CRM pipeline should describe what needs to happen next. Colourful stages are not useful when staff move leads inconsistently or leave quotations without an owner.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-crm-pipeline-give-every-enquiry-an-owner-and-a-next-action.webp",
     content: `
     <h1><strong>Hotel CRM Pipeline: Give Every Enquiry an Owner and a Next Action</strong></h1>
 
@@ -5601,7 +5530,7 @@ export const blogsData = [
       description:
         "A spreadsheet can organise a small sales process when staff update it consistently. It becomes harder to manage when conversations arrive through several channels and employees cannot see what happened after the last row update.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-crm-vs-spreadsheets-when-shared-sales-records-become-necessary.webp",
     content: `
     <h1><strong>Hotel CRM vs Spreadsheets: When Shared Sales Records Become Necessary</strong></h1>
 
@@ -5674,7 +5603,7 @@ export const blogsData = [
       description:
         "A high lead score should mean something reservations can explain. An opaque label may cause staff to overlook a valuable guest or spend time on an enquiry that cannot fit the property.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-lead-scoring-prioritise-enquiries-without-hiding-missing-information.webp",
     content: `
     <h1><strong>Hotel Lead Scoring: Prioritise Enquiries Without Hiding Missing Information</strong></h1>
 
@@ -5747,7 +5676,7 @@ export const blogsData = [
       description:
         "A payment link can simplify collection, but sending it does not confirm a reservation. The hotel needs a clear relationship between quotation, inventory and successful payment.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-deposits-and-payment-links-keep-the-sales-and-booking-states-aligned.webp",
     content: `
     <h1><strong>Hotel Deposits and Payment Links: Keep the Sales and Booking States Aligned</strong></h1>
 
@@ -5820,7 +5749,7 @@ export const blogsData = [
       description:
         "A hotel assistant can answer quickly and still mislead a guest if it uses an old availability list. Inventory is a live commercial fact and needs an authoritative source.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-channel-inventory-and-ai-use-one-verified-availability-source.webp",
     content: `
     <h1><strong>Hotel Channel Inventory and AI: Use One Verified Availability Source</strong></h1>
 
@@ -5893,7 +5822,7 @@ export const blogsData = [
       description:
         "A guest may see an advertisement, research the website, message the hotel and book after a call. Attribution assigns credit within that journey; it does not prove that one channel caused the entire stay.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-revenue-attribution-connect-campaigns-conversations-and-confirmed-stays.webp",
     content: `
     <h1><strong>Hotel Revenue Attribution: Connect Campaigns, Conversations and Confirmed Stays</strong></h1>
 
@@ -5966,7 +5895,7 @@ export const blogsData = [
       description:
         "A hotel funnel should show where guests progress and where they stop. It becomes misleading when every booking-button click is labelled a completed reservation.",
     },
-    src: "",
+    src: "/blogs/covers/ga4-hotel-booking-funnels-measure-the-journey-without-inflating-sales.webp",
     content: `
     <h1><strong>GA4 Hotel Booking Funnels: Measure the Journey Without Inflating Sales</strong></h1>
 
@@ -6044,7 +5973,7 @@ export const blogsData = [
       description:
         "A useful upsell solves a guest need. An airport transfer can help a late arrival; a room upgrade may suit a celebration. An irrelevant offer merely adds friction to the conversation.",
     },
-    src: "",
+    src: "/blogs/covers/ai-hotel-upselling-offer-extras-that-fit-the-guests-actual-stay.webp",
     content: `
     <h1><strong>AI Hotel Upselling: Offer Extras That Fit the Guest’s Actual Stay</strong></h1>
 
@@ -6115,7 +6044,7 @@ export const blogsData = [
       description:
         "A hotel relationship does not end at checkout. Useful communication after the stay can help resolve feedback and make a future visit easier, but it should respect the guest’s preferences.",
     },
-    src: "",
+    src: "/blogs/covers/repeat-hotel-bookings-build-a-guest-lifecycle-beyond-one-stay.webp",
     content: `
     <h1><strong>Repeat Hotel Bookings: Build a Guest Lifecycle Beyond One Stay</strong></h1>
 
@@ -6188,7 +6117,7 @@ export const blogsData = [
       description:
         "A boutique hotel’s appeal often comes from details guests cannot understand through a generic room listing. AI should help communicate those details and organise enquiries without flattening the hotel’s personality.",
     },
-    src: "",
+    src: "/blogs/covers/ai-technology-for-boutique-hotels-preserve-personal-service-while-organising-sales.webp",
     content: `
     <h1><strong>AI Technology for Boutique Hotels: Preserve Personal Service While Organising Sales</strong></h1>
 
@@ -6270,7 +6199,7 @@ export const blogsData = [
       description:
         "A resort may sell weekends easily while struggling with weekdays. More demand is only useful when it matches inventory and the experience available during the promoted dates.",
     },
-    src: "",
+    src: "/blogs/covers/resort-seasonal-marketing-with-ai-promote-the-dates-you-can-sell.webp",
     content: `
     <h1><strong>Resort Seasonal Marketing with AI: Promote the Dates You Can Sell</strong></h1>
 
@@ -6343,7 +6272,7 @@ export const blogsData = [
       description:
         "A business hotel should answer practical questions clearly. Guests may care about transport, arrival time, workspace and whether the property fits a short work trip more than a broad leisure promise.",
     },
-    src: "",
+    src: "/blogs/covers/ai-for-business-hotels-prioritise-practical-enquiries-and-weekday-demand.webp",
     content: `
     <h1><strong>AI for Business Hotels: Prioritise Practical Enquiries and Weekday Demand</strong></h1>
 
@@ -6416,7 +6345,7 @@ export const blogsData = [
       description:
         "Wellness guests may need clear information about programme length, meals, travel and the consultation process. AI can help organise those questions, but it should not make unsupported medical judgments.",
     },
-    src: "",
+    src: "/blogs/covers/ai-for-wellness-hotels-connect-programme-information-and-appropriate-consultations.webp",
     content: `
     <h1><strong>AI for Wellness Hotels: Connect Programme Information and Appropriate Consultations</strong></h1>
 
@@ -6489,7 +6418,7 @@ export const blogsData = [
       description:
         "A villa or homestay enquiry often involves the whole property, a group and specific house rules. Standard hotel-room wording can leave guests uncertain about what they are booking.",
     },
-    src: "",
+    src: "/blogs/covers/ai-for-villas-and-homestays-explain-occupancy-access-and-house-rules-clearly.webp",
     content: `
     <h1><strong>AI for Villas and Homestays: Explain Occupancy, Access and House Rules Clearly</strong></h1>
 
@@ -6562,7 +6491,7 @@ export const blogsData = [
       description:
         "Event sales can involve several conversations before a proposal is ready. Missing requirements create repeated calls and quotations that do not fit the organiser’s needs.",
     },
-    src: "",
+    src: "/blogs/covers/ai-for-hotel-wedding-and-mice-sales-preserve-requirements-through-the-proposal.webp",
     content: `
     <h1><strong>AI for Hotel Wedding and MICE Sales: Preserve Requirements Through the Proposal</strong></h1>
 
@@ -6635,7 +6564,7 @@ export const blogsData = [
       description:
         "Restaurant enquiries need their own workflow. A hotel room assistant should not assume that a dining request follows the same availability, payment and confirmation process as accommodation.",
     },
-    src: "",
+    src: "/blogs/covers/ai-for-restaurant-reservations-connect-enquiries-tables-and-guest-requests.webp",
     content: `
     <h1><strong>AI for Restaurant Reservations: Connect Enquiries, Tables and Guest Requests</strong></h1>
 
@@ -6708,7 +6637,7 @@ export const blogsData = [
       description:
         "A hotel preparing to open needs enquiries, but it also needs accurate expectations. Planned facilities, opening dates and booking readiness may change before the first guest arrives.",
     },
-    src: "",
+    src: "/blogs/covers/pre-opening-hotel-marketing-and-ai-build-demand-without-unverified-promises.webp",
     content: `
     <h1><strong>Pre-Opening Hotel Marketing and AI: Build Demand Without Unverified Promises</strong></h1>
 
@@ -6781,7 +6710,7 @@ export const blogsData = [
       description:
         "A large travel-agent database is only useful when contacts are relevant, current and connected to a clear sales process. Sending a generic hotel brochure to every address rarely explains why an agent should respond.",
     },
-    src: "",
+    src: "/blogs/covers/travel-agent-sales-for-hotels-connect-email-outreach-with-crm-follow-up.webp",
     content: `
     <h1><strong>Travel-Agent Sales for Hotels: Connect Email Outreach with CRM Follow-Up</strong></h1>
 
@@ -6854,7 +6783,7 @@ export const blogsData = [
       description:
         "Guest feedback can reveal repeated problems, but a summary should not erase the context behind them. AI is useful for organising themes when the hotel reviews the evidence and acts on it.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-reviews-and-ai-insights-turn-feedback-into-owned-improvements.webp",
     content: `
     <h1><strong>Hotel Reviews and AI Insights: Turn Feedback into Owned Improvements</strong></h1>
 
@@ -6925,7 +6854,7 @@ export const blogsData = [
       description:
         "A hotel buying AI software for international guests needs more than an English demonstration. Language, timezone, payments, channel choices and staff coverage affect whether the workflow will serve real travellers.",
     },
-    src: "",
+    src: "/blogs/covers/ai-hospitality-software-a-global-buyers-guide-for-hotel-owners.webp",
     content: `
     <h1><strong>AI Hospitality Software: A Global Buyer’s Guide for Hotel Owners</strong></h1>
 
@@ -7008,7 +6937,7 @@ export const blogsData = [
       description:
         "For an Indian hotel receiving enquiries through WhatsApp, forms and calls, the practical challenge is continuity. The guest should not receive one offer in chat and a different quotation from reservations.",
     },
-    src: "",
+    src: "/blogs/covers/ai-hotel-software-in-india-connect-whatsapp-direct-bookings-and-team-ownership.webp",
     content: `
     <h1><strong>AI Hotel Software in India: Connect WhatsApp, Direct Bookings and Team Ownership</strong></h1>
 
@@ -7081,7 +7010,7 @@ export const blogsData = [
       description:
         "A Gulf hotel may handle business travel, leisure stays and longer international visits through the same contact number. An AI workflow needs to recognise the request rather than apply one script to all of them.",
     },
-    src: "",
+    src: "/blogs/covers/ai-hotel-workflows-for-uae-and-gulf-properties-coordinate-languages-and-stay-types.webp",
     content: `
     <h1><strong>AI Hotel Workflows for UAE and Gulf Properties: Coordinate Languages and Stay Types</strong></h1>
 
@@ -7154,7 +7083,7 @@ export const blogsData = [
       description:
         "A boutique hotel in Spain, France or Italy may receive enquiries in several languages. International visibility helps only when the guest can understand the actual room and complete an appropriate enquiry.",
     },
-    src: "",
+    src: "/blogs/covers/ai-for-european-boutique-hotels-localise-rooms-policies-and-guest-conversations.webp",
     content: `
     <h1><strong>AI for European Boutique Hotels: Localise Rooms, Policies and Guest Conversations</strong></h1>
 
@@ -7225,7 +7154,7 @@ export const blogsData = [
       description:
         "For a hotel relying on telephone enquiries, AI should help preserve the caller’s requirements and reach the correct employee. The right workflow depends on call purpose, property staffing and supported systems.",
     },
-    src: "",
+    src: "/blogs/covers/ai-hotel-voice-and-crm-workflows-for-the-usa-and-canada.webp",
     content: `
     <h1><strong>AI Hotel Voice and CRM Workflows for the USA and Canada</strong></h1>
 
@@ -7298,7 +7227,7 @@ export const blogsData = [
       description:
         "A resort stay can involve transport planning as well as room selection. Guests considering a property in Thailand, Indonesia or another destination need accurate information about the actual arrival process.",
     },
-    src: "",
+    src: "/blogs/covers/ai-for-southeast-asian-resorts-coordinate-transfers-packages-and-arrival-questions.webp",
     content: `
     <h1><strong>AI for Southeast Asian Resorts: Coordinate Transfers, Packages and Arrival Questions</strong></h1>
 
@@ -7371,7 +7300,7 @@ export const blogsData = [
       description:
         "A safari-lodge enquiry may concern several nights, transfers and experiences within a wider itinerary. A room-only script can miss the details needed to prepare a useful response.",
     },
-    src: "",
+    src: "/blogs/covers/ai-for-safari-lodges-and-camps-preserve-the-itinerary-behind-the-enquiry.webp",
     content: `
     <h1><strong>AI for Safari Lodges and Camps: Preserve the Itinerary Behind the Enquiry</strong></h1>
 
@@ -7444,7 +7373,7 @@ export const blogsData = [
       description:
         "A hotel serving guests across Latin American markets should evaluate the languages and channels its guests actually use. A regional label does not define one universal communication workflow.",
     },
-    src: "",
+    src: "/blogs/covers/ai-hotel-messaging-in-latin-america-coordinate-languages-and-booking-context.webp",
     content: `
     <h1><strong>AI Hotel Messaging in Latin America: Coordinate Languages and Booking Context</strong></h1>
 
@@ -7517,7 +7446,7 @@ export const blogsData = [
       description:
         "A hotel seeking international guests needs pages that answer real travel and stay questions. Repeating a country name across near-identical pages does little to explain the actual property.",
     },
-    src: "",
+    src: "/blogs/covers/international-hotel-seo-and-ai-search-publish-information-guests-can-verify.webp",
     content: `
     <h1><strong>International Hotel SEO and AI Search: Publish Information Guests Can Verify</strong></h1>
 
@@ -7597,7 +7526,7 @@ export const blogsData = [
       description:
         "A hotel AI buying process should test the moments when guests need accuracy. A fluent welcome demonstration does not reveal how the system handles unavailable rooms, a changed booking or a failed staff transfer.",
     },
-    src: "",
+    src: "/blogs/covers/hotel-ai-software-demo-checklist-compare-providers-using-real-guest-tasks.webp",
     content: `
     <h1><strong>Hotel AI Software Demo Checklist: Compare Providers Using Real Guest Tasks</strong></h1>
 
