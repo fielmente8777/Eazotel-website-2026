@@ -11,7 +11,7 @@ export const blogsData = [
       description:
         "Looking for the best Hotel CRM India solution? Eazotel combines CRM, booking engine, WhatsApp automation, CMS, and revenue analytics to increase direct hotel bookings.",
     },
-    src: "/blogs/professional-business-analytics-displayed-smartphone-screen-office-setting.jpg.webp",
+    src: "/blogs/covers/hotel-crm-india-direct-revenue-os.webp",
     content: `
     <h1><strong>Hotel CRM India: Why Hotels Need a Direct Revenue OS (CRM + Booking Engine + WhatsApp + Analytics)</strong></h1>
 
@@ -229,7 +229,7 @@ export const blogsData = [
     title: "WhatsApp Business API Pricing Update from 1st March – Eazotel",
     description:
       "Starting 1st March, Eazotel will implement Meta’s updated WhatsApp Business API per-message pricing model for all hotels using the platform. This replaces the earlier conversation-based pricing system with a clearer per-message delivered structure, improving transparency and cost predictability.",
-    src: "/blogs/businessman-using-smartphone-laptop-online-communication.webp",
+    src: "/blogs/covers/whatsapp-business-api-pricing-update.webp",
     content: ` 
     <h1><strong>WhatsApp Business API Pricing Update from 1st March – Eazotel</strong></h1>
     <h2><strong>Introduction</strong></h2>
@@ -273,7 +273,7 @@ export const blogsData = [
       description:
         "A hotel can generate enquiries all day and still lose bookings. The problem often appears between systems: a message stays on a phone, a quotation is never followed up, or advertising reports cannot explain which guests actually booked. An AI hospitality platform should help the team complete that journey.",
     },
-    src: "/blogs/digitalhotel.jpg",
+    src: "/blogs/covers/ai-hospitality-platform-connect-hotel-marketing-conversations-bookings.webp",
     content: `
     <h1><strong>AI Hospitality Platform: Connect Hotel Marketing, Conversations and Bookings</strong></h1>
 
@@ -355,7 +355,7 @@ export const blogsData = [
       description:
         "A guest can appear in several hotel systems for different reasons. They may be an enquiry in the CRM, a reservation in the PMS and a visitor in website analytics. Confusion begins when the hotel assumes those records mean the same thing.",
     },
-    src: "/blogs/crmvspms.jpg",
+    src: "/blogs/covers/hotel-crm-vs-pms-vs-ai-platform-which-system-does-what.webp",
     content: `
     <h1><strong>Hotel CRM vs PMS vs AI Platform: Which System Does What?</strong></h1>
 
@@ -426,7 +426,7 @@ export const blogsData = [
       description:
         "An owner asks, “Why are enquiries increasing while bookings are falling?” Advertising alone cannot answer that question. The explanation may sit in room availability, response delays, package pricing or incomplete follow-up. A useful AI consultant needs evidence across those stages.",
     },
-    src: "/blogs/booking.jpg",
+    src: "/blogs/covers/eazotel-chat-ai-consultant-what-hotel-owners-should-ask-their-data.webp",
     content: `
     <h1><strong>Eazotel Chat AI Consultant: What Hotel Owners Should Ask Their Data</strong></h1>
 
@@ -494,7 +494,7 @@ export const blogsData = [
       description:
         "A dashboard can look complete while hiding disconnected data. One guest may submit a form, message on WhatsApp and then call reservations. Without a reliable connection, the hotel may count three leads and still miss the booking.",
     },
-    src: "/blogs/integration.jpg",
+    src: "/blogs/covers/hotel-data-integration-build-a-reliable-guest-and-revenue-record.webp",
     content: `
     <h1><strong>Hotel Data Integration: Build a Reliable Guest and Revenue Record</strong></h1>
 
@@ -565,7 +565,7 @@ export const blogsData = [
       description:
         "A small hotel rarely has a separate team for every channel. The same employee may handle check-ins, calls and quotations. AI is useful when it removes a repetitive task and leaves that employee with a clear next action.",
     },
-    src: "/blogs/smallhotel.jpg",
+    src: "/blogs/covers/ai-for-small-hotels-start-with-one-workflow-that-saves-time.webp",
     content: `
     <h1><strong>AI for Small Hotels: Start with One Workflow That Saves Time</strong></h1>
 
@@ -636,7 +636,7 @@ export const blogsData = [
       description:
         "A hotel group benefits from central standards, but guests need answers for a particular property. A shared assistant becomes risky when it mixes a beach resort’s facilities with a city hotel’s policies.",
     },
-    src: "/blogs/standards.jpg",
+    src: "/blogs/covers/ai-for-hotel-groups-share-standards-keep-property-context.webp",
     content: `
     <h1><strong>AI for Hotel Groups: Share Standards, Keep Property Context</strong></h1>
 
@@ -707,7 +707,7 @@ export const blogsData = [
       description:
         "Fast replies are useful, but they do not automatically prove that hotel AI pays for itself. A sensible return calculation separates saved work, incremental bookings and the cost of maintaining the service.",
     },
-    src: "/blogs/ai-roi.jpg",
+    src: "/blogs/covers/hotel-ai-roi-calculate-value-beyond-faster-replies.webp",
     content: `
     <h1><strong>Hotel AI ROI: Calculate Value Beyond Faster Replies</strong></h1>
 
@@ -778,7 +778,7 @@ export const blogsData = [
       description:
         "Two products can both advertise an integration while providing very different connections. One may synchronise confirmed bookings; another may only import contact details. The difference matters to both guest answers and management reports.",
     },
-    src: "/blogs/software.jpg",
+    src: "/blogs/covers/hotel-software-integrations-questions-to-ask-before-you-buy.webp",
     content: `
     <h1><strong>Hotel Software Integrations: Questions to Ask Before You Buy</strong></h1>
 
@@ -850,7 +850,7 @@ export const blogsData = [
       description:
         "Reservations, marketing and the front desk need different views of a guest journey. Giving everyone unrestricted access may be convenient initially, but it makes ownership and accountability harder as the hotel grows.",
     },
-    src: "/blogs/crm.jpg",
+    src: "/blogs/covers/hotel-ai-access-controls-give-teams-useful-data-with-clear-boundaries.webp",
     content: `
     <h1><strong>Hotel AI Access Controls: Give Teams Useful Data with Clear Boundaries</strong></h1>
 
@@ -922,7 +922,7 @@ export const blogsData = [
       description:
         "A hotel AI rollout needs a business owner as well as a technical setup. The technology can answer quickly, but employees still need to maintain information, handle exceptions and evaluate whether guests receive better service.",
     },
-    src: "/blogs/plan.jpg",
+    src: "/blogs/covers/a-90-day-hotel-ai-rollout-plan-from-pilot-to-measurable-workflow.webp",
     content: `
     <h1><strong>A 90-Day Hotel AI Rollout Plan: From Pilot to Measurable Workflow</strong></h1>
 
@@ -996,7 +996,7 @@ export const blogsData = [
       description:
         "A hotel WhatsApp number becomes valuable when every conversation has a useful next step. An instant greeting alone does not tell the guest whether a room fits their family or whether a package includes meals.",
     },
-    src: "/blogs/whatsapp.jpg",
+    src: "/blogs/covers/whatsapp-automation-for-hotels-design-the-complete-booking-conversation.webp",
     content: `
     <h1><strong>WhatsApp Automation for Hotels: Design the Complete Booking Conversation</strong></h1>
 
@@ -1079,7 +1079,7 @@ export const blogsData = [
       description:
         "A hotel can outgrow its messaging setup before it realises why. Conversations may be visible on one employee’s device while other staff lack the history needed to help the guest.",
     },
-    src: "/blogs/businessVsAPI.jpg",
+    src: "/blogs/covers/whatsapp-business-app-vs-api-for-hotels-how-to-choose.webp",
     content: `
     <h1><strong>WhatsApp Business App vs API for Hotels: How to Choose</strong></h1>
 
@@ -1158,7 +1158,7 @@ export const blogsData = [
       description:
         "A guest types, “Two adults and a child, next weekend.” An unhelpful bot then asks how many adults will travel. Qualification should recognise what is already known and ask only what helps the hotel respond.",
     },
-    src: "/blogs/query.jpg",
+    src: "/blogs/covers/qualify-hotel-whatsapp-enquiries-without-making-guests-repeat-themselves.webp",
     content: `
     <h1><strong>Qualify Hotel WhatsApp Enquiries Without Making Guests Repeat Themselves</strong></h1>
 
@@ -1229,7 +1229,7 @@ export const blogsData = [
       description:
         "The guest requested a package, received a quotation and went quiet. Another copy of the same brochure rarely explains what prevented the decision. A useful follow-up relates to the specific enquiry.",
     },
-    src: "/blogs/businessman-browsing-phone.jpg",
+    src: "/blogs/covers/hotel-whatsapp-follow-ups-move-a-quotation-toward-a-decision.webp",
     content: `
     <h1><strong>Hotel WhatsApp Follow-Ups: Move a Quotation Toward a Decision</strong></h1>
 
@@ -1302,7 +1302,7 @@ export const blogsData = [
       description:
         "A confirmation message is a service document in conversational form. If it shows the wrong dates or payment state, a friendly tone cannot repair the confusion it creates.",
     },
-    src: "/blogs/3974025.jpg",
+    src: "/blogs/covers/booking-confirmations-on-whatsapp-give-guests-information-they-can-trust.webp",
     content: `
     <h1><strong>Booking Confirmations on WhatsApp: Give Guests Information They Can Trust</strong></h1>
 
@@ -1375,7 +1375,7 @@ export const blogsData = [
       description:
         "Pre-arrival communication should reduce uncertainty. A guest arriving late needs a clear arrival process; a family driving to a resort may need parking and route information. Both need messages relevant to their actual booking.",
     },
-    src: "/blogs/front-view-woman-holding-smartphone.jpg",
+    src: "/blogs/covers/pre-arrival-whatsapp-automation-prepare-guests-for-a-smoother-stay.webp",
     content: `
     <h1><strong>Pre-Arrival WhatsApp Automation: Prepare Guests for a Smoother Stay</strong></h1>
 
@@ -1448,7 +1448,7 @@ export const blogsData = [
       description:
         "A former wedding guest and a frequent business traveller may respond to very different hotel offers. Sending the same promotion to both creates reach without necessarily creating relevance.",
     },
-    src: "/blogs/close-up-hands-interacting-with-smartphone-playing-music-dimly-lit-setting.jpg",
+    src: "/blogs/covers/whatsapp-broadcasts-for-repeat-hotel-guests-segment-before-you-send.webp",
     content: `
     <h1><strong>WhatsApp Broadcasts for Repeat Hotel Guests: Segment Before You Send</strong></h1>
 
@@ -1527,7 +1527,7 @@ export const blogsData = [
       description:
         "A guest who leaves a booking flow may be comparing dates, checking cancellation terms or experiencing a payment problem. Recovery works best when the hotel identifies the barrier instead of assuming the guest needs a discount.",
     },
-    src: "/blogs/previous.jpg",
+    src: "/blogs/covers/recover-abandoned-hotel-booking-enquiries-without-inventing-urgency.webp",
     content: `
     <h1><strong>Recover Abandoned Hotel Booking Enquiries Without Inventing Urgency</strong></h1>
 
@@ -1600,7 +1600,7 @@ export const blogsData = [
       description:
         "Language support matters most when a detail changes the stay. A translated greeting is useful, but an incorrectly translated cancellation condition or child policy can create a serious misunderstanding.",
     },
-    src: "/blogs/multilingual.jpg",
+    src: "/blogs/covers/multilingual-whatsapp-for-hotels-preserve-meaning-across-guest-languages.webp",
     content: `
     <h1><strong>Multilingual WhatsApp for Hotels: Preserve Meaning Across Guest Languages</strong></h1>
 
@@ -1671,7 +1671,7 @@ export const blogsData = [
       description:
         "Hotel WhatsApp automation costs extend beyond the software subscription. Setup, message usage, connected systems and ongoing staff review all affect the budget. A useful estimate begins with the hotel’s expected workflow.",
     },
-    src: "/blogs/budget.jpg",
+    src: "/blogs/covers/whatsapp-automation-costs-for-hotels-build-a-practical-budget.webp",
     content: `
     <h1><strong>WhatsApp Automation Costs for Hotels: Build a Practical Budget</strong></h1>
 
@@ -7600,7 +7600,7 @@ export const blogsData = [
       description:
         "Discover how CRM voice recording notes help hotels capture guest conversations, streamline follow-ups, improve team coordination, and manage enquiries with Eazotel.",
     },
-    src: "/blogs/crmvoicerecordingnoteshotel.png",
+    src: "/blogs/covers/crm-voice-recording-notes-hotel-crm.webp",
     content: `
     <p>Eazotel | Internal developer reference</p>
 

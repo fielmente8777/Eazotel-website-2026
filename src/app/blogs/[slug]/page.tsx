@@ -33,27 +33,35 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     };
   }
 
+  // params is a Promise in this Next.js version, so build URLs from the awaited value.
+  const url = `https://eazotel.com/blogs/${path.slug}`;
+  const images = blogPost.src
+    ? [{ url: `https://eazotel.com${blogPost.src}`, width: 1600, height: 1000, alt: blogPost.title }]
+    : undefined;
+
   return {
     title: blogPost?.metadata.title,
     description: blogPost?.metadata.description,
     alternates: {
-      canonical: `https://eazotel.com/blogs/${params.slug}`,
+      canonical: url,
       languages: {
-        "en-US": `https://eazotel.com/blogs/${params.slug}`,
+        "en-US": url,
       },
     },
     openGraph: {
       title: blogPost?.metadata.title,
       description: blogPost?.metadata.description,
-      url: `https://eazotel.com/blogs/${params.slug}`,
+      url,
       siteName: "Eazotel",
       locale: "en_US",
       type: "website",
+      images,
     },
     twitter: {
       card: "summary_large_image",
       title: blogPost?.metadata.title,
       description: blogPost?.metadata.description,
+      images,
     },
     robots: {
       index: true,
@@ -90,11 +98,13 @@ export default async function Blog({ params }: Params) {
             <GrFormNext /> {blog?.title}
           </p>
           {blog?.src && (
-            <div className="w-full relative aspect-[4/2.5] max-w-5xl mx-auto">
+            <div className="w-full relative aspect-[4/2.5] max-w-5xl mx-auto rounded-2xl overflow-hidden">
               <Image
                 src={blog?.src}
                 alt={blog?.title}
                 fill
+                preload
+                sizes="(min-width: 1024px) 1024px, 100vw"
                 className="object-cover"
               />
             </div>

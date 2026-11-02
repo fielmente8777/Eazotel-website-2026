@@ -27,6 +27,7 @@ export default function Blogs() {
                   alt={item.title}
                   loading="lazy"
                   fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   className="w-full h-full absolute inset-0 object-cover"
                 />
               </div>
