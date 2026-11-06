@@ -1,3 +1,29 @@
+# Eazotel website
+
+## Pricing page (`/pricing`)
+
+- Reads the plans, add-on apps, billing cycles and featured offers from gian-new
+  (`GET /api/v1/billing/catalogue`), the same catalogue staff edit in the admin console and
+  hotels buy from in the dashboard. Nothing is priced in the browser.
+- If gian-new can't be reached it falls back to gian's old `/api/v1/subscription/plans`.
+- "Start free trial" goes to `/onboarding/`; "Buy or upgrade in your dashboard" goes to the
+  dashboard's `/plans?plan=<CODE>&cycle=<months>`; Enterprise goes to sales on WhatsApp.
+  Payment only happens in the dashboard, where the hotel is signed in.
+- `NEXT_PUBLIC_EAZOTEL_API_URL` sets gian-new's address (default `https://gian-new.onrender.com`).
+  The site's origin must be in gian-new's `CORS_ORIGINS`.
+- Code: `src/app/pricing/`, `src/hooks/usePricingCatalogue.ts`, `src/utils/billing.ts`.
+
+## Sign up and log in with Google
+
+`/onboarding/` and `/login/` offer Google alongside email (`components/onboarding/GoogleAuthButton.tsx`,
+Google's own script, no package). nexon's `POST /user/googleauth` verifies Google's token, creates the
+account if the email is new, and returns the same token an email login gets.
+
+- `NEXT_PUBLIC_GOOGLE_CLIENT_ID` overrides the client ID. It must be the same web client nexon verifies against.
+- Every origin the site runs on must be an **Authorized JavaScript origin** on that client in Google Cloud.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

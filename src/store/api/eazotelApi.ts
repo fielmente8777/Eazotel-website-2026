@@ -2,6 +2,11 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const EAZOTEL_API_BASE_URL = "https://nexon.eazotel.com/eazotel";
 export const DASHBOARD_URL = "https://dashboard.eazotel.com";
+// Same web client as nexon and the dashboard: nexon only accepts tokens issued for it.
+export const GOOGLE_CLIENT_ID =
+  process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ||
+  "579254279555-me5qc2denm58ttngj6qipo4rdqb18vrh.apps.googleusercontent.com";
+const GOOGLE_AUTH_URL = "https://nexon.eazotel.com/user/googleauth";
 // Newer backend that records the onboarding and creates the subscription.
 // export const GIAN_API_URL = "http://localhost:8000/api/v1"; // local host url
 export const GIAN_API_URL = "https://gian-1eve.onrender.com/api/v1";
@@ -22,6 +27,14 @@ export interface CreateUserResponse {
   Status: boolean;
   Token?: string;
   Message?: string;
+}
+
+export interface GoogleAuthResponse {
+  status: boolean;
+  message?: string;
+  token?: string;
+  // the account already finished onboarding
+  onboarding?: boolean;
 }
 
 export interface GetUserResponse {
@@ -240,6 +253,17 @@ export const eazotelApi = createApi({
       invalidatesTags: ["User"],
     }),
 
+    // Signs in with Google, creating the account if the email is new. Absolute URL.
+    googleAuth: builder.mutation<GoogleAuthResponse, string>({
+      query: (credential) => ({
+        url: GOOGLE_AUTH_URL,
+        method: "POST",
+        headers: { Authorization: `Bearer ${credential}` },
+        body: {},
+      }),
+      invalidatesTags: ["User"],
+    }),
+
     getUser: builder.query<GetUserResponse, string>({
       query: (token) => `/getuser/${encodeURIComponent(token)}`,
       providesTags: ["User"],
@@ -315,6 +339,7 @@ export const eazotelApi = createApi({
 
 export const {
   useCreateUserMutation,
+  useGoogleAuthMutation,
   useGetUserQuery,
   useLazyGetUserQuery,
   useCreateWebsiteMutation,

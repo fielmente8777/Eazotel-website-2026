@@ -3,6 +3,7 @@
 import {
   dashboardLink,
   useCreateUserMutation,
+  useGoogleAuthMutation,
   useLazyGetUserQuery,
   useLazyHasSubscriptionQuery,
 } from "@/store/api/eazotelApi";
@@ -13,6 +14,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiArrowRight, FiCheckCircle, FiLock, FiMail } from "react-icons/fi";
+import GoogleAuthButton, { emailFromGoogleToken, OrDivider } from "./GoogleAuthButton";
 import { Alert, Button, Card, OnboardingShell, PasswordField, Pill, TextField } from "./ui";
 import { isEmail } from "./validation";
 
@@ -28,6 +30,52 @@ const LoginForm = () => {
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [redirecting, setRedirecting] = useState(false);
+  const [googleAuth, { isLoading: googleBusy }] = useGoogleAuthMutation();
+  const [googleUnavailable, setGoogleUnavailable] = useState(false);
+
+  // Signed in, by password or Google: on to the dashboard, or to whatever is left of onboarding.
+  const afterSignIn = async (token: string, signedInEmail: string) => {
+    persistToken(token);
+    dispatch(setToken(token));
+    // Drop progress saved for whoever used this browser before.
+    dispatch(resetOnboarding());
+
+    const user = await getUser(token).unwrap().catch(() => null);
+    // Only gian's 404 means "missing"; if the check fails, don't block.
+    const subscribed =
+      !!user?.Status &&
+      (await checkSubscription(token)
+        .unwrap()
+        .catch((err: { status?: unknown }) => err?.status !== 404));
+    setRedirecting(true);
+    if (user?.Status && subscribed) {
+      // Website + subscription → straight to the dashboard.
+      window.location.href = dashboardLink(token);
+    } else if (user?.Status) {
+      // Website but no subscription → the wizard resumes at launch.
+      dispatch(updateForm({ email: signedInEmail }));
+      router.push("/onboarding/");
+    } else {
+      // Account without a website yet → finish onboarding.
+      dispatch(updateForm({ email: signedInEmail }));
+      dispatch(goToStep("account"));
+      router.push("/onboarding/");
+    }
+  };
+
+  const onGoogle = async (credential: string) => {
+    setFormError(null);
+    try {
+      const res = await googleAuth(credential).unwrap();
+      if (!res.status || !res.token) {
+        setFormError(res.message || "Google sign-in didn't work. Please try again.");
+        return;
+      }
+      await afterSignIn(res.token, emailFromGoogleToken(credential) ?? "");
+    } catch {
+      setFormError("We couldn't sign you in with Google. Please try again, or use your password.");
+    }
+  };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,38 +99,13 @@ const LoginForm = () => {
         return;
       }
 
-      persistToken(res.Token);
-      dispatch(setToken(res.Token));
-      // Drop progress saved for whoever used this browser before.
-      dispatch(resetOnboarding());
-
-      const user = await getUser(res.Token).unwrap().catch(() => null);
-      // Only gian's 404 means "missing"; if the check fails, don't block.
-      const subscribed =
-        !!user?.Status &&
-        (await checkSubscription(res.Token)
-          .unwrap()
-          .catch((err: { status?: unknown }) => err?.status !== 404));
-      setRedirecting(true);
-      if (user?.Status && subscribed) {
-        // Website + subscription → straight to the dashboard.
-        window.location.href = dashboardLink(res.Token);
-      } else if (user?.Status) {
-        // Website but no subscription → the wizard resumes at launch.
-        dispatch(updateForm({ email: email.trim() }));
-        router.push("/onboarding/");
-      } else {
-        // Account without a website yet → finish onboarding.
-        dispatch(updateForm({ email: email.trim() }));
-        dispatch(goToStep("account"));
-        router.push("/onboarding/");
-      }
+      await afterSignIn(res.Token, email.trim());
     } catch {
       setFormError("We couldn't reach the server. Please try again.");
     }
   };
 
-  const busy = signingIn || checking || redirecting;
+  const busy = signingIn || checking || redirecting || googleBusy;
 
   return (
     <OnboardingShell
@@ -121,10 +144,19 @@ const LoginForm = () => {
             <h2 className="font-primary text-2xl font-semibold md:text-3xl">
               Sign in to your account
             </h2>
-            <p className="text-white/60">Use the email you signed up with.</p>
+            <p className="text-white/60">Use Google, or the email you signed up with.</p>
           </div>
 
           {formError && <Alert>{formError}</Alert>}
+
+          {!googleUnavailable && (
+            <>
+              <div className={busy ? "pointer-events-none opacity-60" : ""}>
+                <GoogleAuthButton mode="signin" onCredential={onGoogle} onLoadError={() => setGoogleUnavailable(true)} />
+              </div>
+              <OrDivider label="or log in with email" />
+            </>
+          )}
 
           <TextField
             label="Email"

@@ -1,13 +1,15 @@
 "use client";
 
+import { useGoogleAuthMutation } from "@/store/api/eazotelApi";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { logout, persistToken } from "@/store/slices/authSlice";
+import { logout, persistToken, setToken } from "@/store/slices/authSlice";
 import { goToStep, resetOnboarding, updateForm } from "@/store/slices/onboardingSlice";
 import Link from "next/link";
 import { useState } from "react";
 import { FiArrowRight, FiHome, FiLock, FiMail, FiUserCheck } from "react-icons/fi";
+import GoogleAuthButton, { emailFromGoogleToken, OrDivider } from "../GoogleAuthButton";
 import PropertyLookup, { matchToForm } from "../PropertyLookup";
-import { Button, PasswordField, TextField } from "../ui";
+import { Alert, Button, PasswordField, TextField } from "../ui";
 import { FormErrors, passwordScore, validateAccount } from "../validation";
 
 const strengthLabels = ["Too short", "Weak", "Fair", "Good", "Strong"];
@@ -25,6 +27,27 @@ const AccountStep = () => {
   const token = useAppSelector((s) => s.auth.token);
   const [errors, setErrors] = useState<FormErrors>({});
   const signedIn = !!token;
+  const [googleAuth, { isLoading: googleBusy }] = useGoogleAuthMutation();
+  const [googleError, setGoogleError] = useState<string | null>(null);
+  const [googleUnavailable, setGoogleUnavailable] = useState(false);
+
+  // A new email gets an account; the wizard then carries on as for anyone signed in, with no
+  // password to choose. An email that already has a website goes to its "You're live" screen.
+  const onGoogle = async (credential: string) => {
+    setGoogleError(null);
+    try {
+      const res = await googleAuth(credential).unwrap();
+      if (!res.status || !res.token) {
+        setGoogleError(res.message || "Google sign-up didn't work. Please try again.");
+        return;
+      }
+      dispatch(updateForm({ email: form.email.trim() || emailFromGoogleToken(credential) || "", password: "" }));
+      persistToken(res.token);
+      dispatch(setToken(res.token));
+    } catch {
+      setGoogleError("We couldn't sign you up with Google. Please try again, or use your email.");
+    }
+  };
 
   const set =
     (field: "hotelName" | "email" | "password") =>
@@ -58,6 +81,16 @@ const AccountStep = () => {
           No credit card. Your website is generated instantly.
         </p>
       </div>
+
+      {!signedIn && !googleUnavailable && (
+        <div className="flex flex-col gap-5">
+          {googleError && <Alert>{googleError}</Alert>}
+          <div className={googleBusy ? "pointer-events-none opacity-60" : ""}>
+            <GoogleAuthButton mode="signup" onCredential={onGoogle} onLoadError={() => setGoogleUnavailable(true)} />
+          </div>
+          <OrDivider label="or sign up with email" />
+        </div>
+      )}
 
       {signedIn && (
         <div className="flex items-center justify-between gap-3 rounded-xl border border-color-4/30 bg-color-4/10 px-4 py-3 text-sm">
