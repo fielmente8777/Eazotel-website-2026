@@ -2,7 +2,7 @@ import type { BillingCycle } from "@/@types/subscription";
 import { DASHBOARD_URL, GIAN_API_URL } from "@/store/api/eazotelApi";
 
 /** gian-new, the backend that owns plans and prices (set NEXT_PUBLIC_EAZOTEL_API_URL to change it). */
-export const EAZOTEL_API_URL = (process.env.NEXT_PUBLIC_EAZOTEL_API_URL || "https://gian-new.onrender.com").replace(/\/+$/, "");
+export const EAZOTEL_API_URL = (process.env.NEXT_PUBLIC_EAZOTEL_API_URL || "https://gn.eazotel.com").replace(/\/+$/, "");
 export const CATALOGUE_URL = `${EAZOTEL_API_URL}/api/v1/billing/catalogue`;
 /** the older backend's plans, used only if gian-new can't be reached */
 export const LEGACY_PLANS_URL = `${GIAN_API_URL}/subscription/plans`;

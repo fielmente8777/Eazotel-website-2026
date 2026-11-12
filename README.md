@@ -9,7 +9,7 @@
 - "Start free trial" goes to `/onboarding/`; "Buy or upgrade in your dashboard" goes to the
   dashboard's `/plans?plan=<CODE>&cycle=<months>`; Enterprise goes to sales on WhatsApp.
   Payment only happens in the dashboard, where the hotel is signed in.
-- `NEXT_PUBLIC_EAZOTEL_API_URL` sets gian-new's address (default `https://gian-new.onrender.com`).
+- `NEXT_PUBLIC_EAZOTEL_API_URL` sets gian-new's address (default `https://gn.eazotel.com`).
   The site's origin must be in gian-new's `CORS_ORIGINS`.
 - Code: `src/app/pricing/`, `src/hooks/usePricingCatalogue.ts`, `src/utils/billing.ts`.
 
