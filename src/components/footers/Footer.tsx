@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import WebSiteFooter from "./WebSiteFooter";
 import LandingFooter from "./LandingFooter";
+import GooglePartnerBadge from "./GooglePartnerBadge";
 const Footer = () => {
   const pathName = usePathname();
   const RenderFooter = WebSiteFooter;
@@ -9,9 +10,9 @@ const Footer = () => {
     case "/thank-you/":
       return null;
     case "/landing-page/":
-      return <LandingFooter />;
+      return <><LandingFooter /><GooglePartnerBadge /></>;
     default:
-      return <RenderFooter />;
+      return <><RenderFooter /><GooglePartnerBadge /></>;
   }
 };
 
